@@ -9,8 +9,8 @@ export default function TestimonialCard({ item }: TestimonialCardProps) {
   return (
     <div className="swiper-slide">
       <div className="testimonial-item">
-        <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
-          <div className="w-full md:w-3/5">
+        <div className="row gy-4 justify-content-center">
+          <div className="col-lg-6">
             <div className="testimonial-content">
               <p>
                 <Icon name="bi-quote quote-icon-left" />
@@ -26,10 +26,10 @@ export default function TestimonialCard({ item }: TestimonialCardProps) {
               </div>
             </div>
           </div>
-          <div className="w-full md:w-1/5 text-center">
+          <div className="col-lg-2 text-center">
             <img
               src={item.imageUrl}
-              className="testimonial-img mx-auto"
+              className="img-fluid testimonial-img"
               alt={item.name}
             />
           </div>

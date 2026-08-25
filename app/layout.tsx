@@ -38,6 +38,7 @@ export default function RootLayout({
           href="/assets/vendor/swiper/swiper-bundle.min.css"
           rel="stylesheet"
         />
+        <link href="/assets/css/main.css" rel="stylesheet" />
       </head>
       <body className="index-page">
         {children}

@@ -7,9 +7,9 @@ interface StatItemMoleculeProps {
 
 export default function StatItemMolecule({ item }: StatItemMoleculeProps) {
   return (
-    <div className="flex flex-col items-center">
+    <div className="col-lg-3 col-md-6 d-flex flex-column align-items-center">
       <Icon name={item.icon} />
-      <div className="stats-item mt-2 w-full text-center relative z-0">
+      <div className="stats-item">
         <span
           data-purecounter-start="0"
           data-purecounter-end={item.end}

@@ -37,14 +37,17 @@ export default function SkillsSection() {
     <section id="skills" className="skills section">
       <SectionTitle title={skillsData.title} subtitle={skillsData.subtitle} />
 
-      <div className="container mx-auto px-4" data-aos="fade-up" data-aos-delay="100">
-        <div ref={skillsRef} className="flex flex-col lg:flex-row gap-8">
-          <div className="w-full lg:w-1/2">
+      <div className="container" data-aos="fade-up" data-aos-delay="100">
+        <div
+          ref={skillsRef}
+          className="row skills-content skills-animation"
+        >
+          <div className="col-lg-6">
             {skillsData.left.map((skill, i) => (
               <SkillItem key={i} skill={skill} />
             ))}
           </div>
-          <div className="w-full lg:w-1/2">
+          <div className="col-lg-6">
             {skillsData.right.map((skill, i) => (
               <SkillItem key={i} skill={skill} />
             ))}

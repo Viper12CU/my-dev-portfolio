@@ -6,20 +6,20 @@ export default function AboutSection() {
     <section id="about" className="about section">
       <SectionTitle title={aboutData.title} subtitle={aboutData.subtitle} />
 
-      <div className="container mx-auto px-4" data-aos="fade-up" data-aos-delay="100">
-        <div className="flex flex-col lg:flex-row gap-8 justify-center items-start">
-          <div className="w-full lg:w-1/3">
+      <div className="container" data-aos="fade-up" data-aos-delay="100">
+        <div className="row gy-4 justify-content-center">
+          <div className="col-lg-4">
             <img
               src={aboutData.imageUrl}
-              className="w-full h-auto"
+              className="img-fluid"
               alt=""
             />
           </div>
-          <div className="w-full lg:w-2/3 content">
+          <div className="col-lg-8 content">
             <h2>{aboutData.role}</h2>
-            <p className="italic py-3">{aboutData.bio1}</p>
-            <div className="flex flex-col sm:flex-row gap-6">
-              <div className="w-full sm:w-1/2">
+            <p className="fst-italic py-3">{aboutData.bio1}</p>
+            <div className="row">
+              <div className="col-lg-6">
                 <ul>
                   {aboutData.details.left.map((detail, i) => (
                     <li key={i}>
@@ -30,7 +30,7 @@ export default function AboutSection() {
                   ))}
                 </ul>
               </div>
-              <div className="w-full sm:w-1/2">
+              <div className="col-lg-6">
                 <ul>
                   {aboutData.details.right.map((detail, i) => (
                     <li key={i}>

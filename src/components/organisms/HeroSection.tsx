@@ -28,9 +28,9 @@ export default function HeroSection() {
     <section id="hero" className="hero section light-background">
       <img src="/assets/img/hero-bg.jpg" alt="" />
 
-      <div className="container mx-auto px-4 relative z-10" data-aos="zoom-out">
-        <div className="flex justify-center">
-          <div className="w-full max-w-3xl">
+      <div className="container" data-aos="zoom-out">
+        <div className="row justify-content-center">
+          <div className="col-lg-9">
             <h2>{heroData.name}</h2>
             <p>
               I&apos;m{" "}

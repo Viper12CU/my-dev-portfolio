@@ -41,10 +41,10 @@ export default function Header() {
   return (
     <header
       id="header"
-      className={`header flex-col justify-content-center ${isOpen ? "header-show" : ""}`}
+      className={`header d-flex flex-column justify-content-center ${isOpen ? "header-show" : ""}`}
     >
       <i
-        className={`header-toggle xl:hidden bi ${isOpen ? "bi-x" : "bi-list"}`}
+        className={`header-toggle d-xl-none bi ${isOpen ? "bi-x" : "bi-list"}`}
         onClick={toggle}
         role="button"
         tabIndex={0}

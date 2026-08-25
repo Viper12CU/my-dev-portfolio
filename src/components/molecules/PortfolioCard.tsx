@@ -7,8 +7,8 @@ interface PortfolioCardProps {
 
 export default function PortfolioCard({ item }: PortfolioCardProps) {
   return (
-    <div className="portfolio-item isotope-item">
-      <img src={item.imageUrl} className="w-full h-auto" alt={item.title} />
+    <div className="col-lg-4 col-md-6 portfolio-item isotope-item">
+      <img src={item.imageUrl} className="img-fluid" alt={item.title} />
       <div className="portfolio-info">
         <h4>{item.title}</h4>
         <p>{item.description}</p>

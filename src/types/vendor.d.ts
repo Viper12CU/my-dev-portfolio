@@ -55,3 +55,37 @@ declare module "swiper/modules" {
   export const Pagination: unknown;
   export const Autoplay: unknown;
 }
+
+declare module "aos" {
+  interface AOSOptions {
+    duration?: number;
+    easing?: string;
+    once?: boolean;
+    mirror?: boolean;
+    offset?: number;
+    delay?: number;
+    anchorPlacement?: string;
+    rootMargin?: string;
+    throttleDelay?: number;
+    debounceDelay?: number;
+    disableMutationObserver?: boolean;
+    disableFocus?: boolean;
+    startEvent?: string;
+    animatedClassName?: string;
+    initClassName?: string;
+    useClassNames?: boolean;
+    disableMobile?: boolean;
+  }
+  const AOS: {
+    init(options?: AOSOptions): void;
+    refresh(): void;
+    refreshHard(): void;
+  };
+  export default AOS;
+}
+
+declare module "@srexi/purecounterjs" {
+  export default class PureCounter {
+    constructor();
+  }
+}

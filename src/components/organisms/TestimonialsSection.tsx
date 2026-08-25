@@ -34,7 +34,7 @@ export default function TestimonialsSection() {
         subtitle={testimonialsData.subtitle}
       />
 
-      <div className="container mx-auto px-4" data-aos="fade-up" data-aos-delay="100">
+      <div className="container" data-aos="fade-up" data-aos-delay="100">
         <div className="swiper init-swiper">
           <script
             type="application/json"
