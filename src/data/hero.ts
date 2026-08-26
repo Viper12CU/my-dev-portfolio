@@ -5,8 +5,8 @@ export interface HeroData {
 }
 
 export const heroData: HeroData = {
-  name: "Brandon Johnson",
-  typedItems: ["Designer", "Developer", "Freelancer", "Photographer"],
+  name: "Fabian Lemus",
+  typedItems: ["Developer", "Freelancer", "Designer"],
   socialLinks: [
     { icon: "bi-twitter-x", href: "#" },
     { icon: "bi-facebook", href: "#" },

@@ -58,7 +58,7 @@ export default function PortfolioSection() {
           data-sort="original-order"
         >
           <ul
-            className="portfolio-filters isotope-filters"
+            className="portfolio-filters isotope-filters "
             data-aos="fade-up"
             data-aos-delay="100"
           >
