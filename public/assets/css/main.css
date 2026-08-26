@@ -186,8 +186,10 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
   width: 40px;
   height: 40px;
+  line-height: 1;
   border-radius: 50%;
   cursor: pointer;
   position: fixed;
@@ -195,6 +197,18 @@ h6 {
   right: 15px;
   z-index: 9999;
   transition: background-color 0.3s;
+  border: none;
+  padding: 0;
+}
+
+.header .header-toggle svg {
+  display: block;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  inset: 0;
+  margin: auto;
 }
 
 .header .header-toggle:hover {
@@ -554,14 +568,13 @@ section,
   font-weight: 700;
 }
 
-.hero p {
+.hero .hero-typed {
   margin: 5px 0 0 0;
   font-size: 26px;
 }
 
-.hero p span {
+.hero .hero-typed .hero-flip-words {
   letter-spacing: 1px;
-  border-bottom: 2px solid var(--accent-color);
 }
 
 .hero .social-links {

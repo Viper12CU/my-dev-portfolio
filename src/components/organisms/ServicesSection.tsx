@@ -10,11 +10,12 @@ export default function ServicesSection() {
         subtitle={servicesData.subtitle}
       />
 
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="container">
+        <div className="row gy-4">
           {servicesData.items.map((item, i) => (
             <div
               key={i}
+              className="col-lg-4 col-md-6"
               data-aos="fade-up"
               data-aos-delay={(i + 1) * 100}
             >

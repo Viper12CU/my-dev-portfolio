@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { MorphIcon } from "morphicons/react";
+import { Menu, X } from "lucide";
 import { navItems } from "@/data/navigation";
 import NavItemMolecule from "@/components/molecules/NavItem";
 
@@ -41,17 +43,16 @@ export default function Header() {
   return (
     <header
       id="header"
-      className={`header flex-col justify-content-center ${isOpen ? "header-show" : ""}`}
+      className={`header d-flex flex-column justify-content-center ${isOpen ? "header-show" : ""}`}
     >
-      <i
-        className={`header-toggle xl:hidden bi ${isOpen ? "bi-x" : "bi-list"}`}
+      <button
+        className="header-toggle d-xl-none"
         onClick={toggle}
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") toggle();
-        }}
-      />
+        aria-expanded={isOpen}
+        aria-label="Toggle navigation"
+      >
+        <MorphIcon size={24} icon={isOpen ? X : Menu} />
+      </button>
 
       <nav id="navmenu" className="navmenu">
         <ul>

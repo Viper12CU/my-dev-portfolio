@@ -7,9 +7,9 @@ export default function ResumeSection() {
     <section id="resume" className="resume section">
       <SectionTitle title={resumeData.title} subtitle={resumeData.subtitle} />
 
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row gap-8">
-          <div className="w-full lg:w-1/2" data-aos="fade-up" data-aos-delay="100">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <h3 className="resume-title">{resumeData.summary.title}</h3>
             <ResumeItemMolecule item={resumeData.summary} />
 
@@ -21,7 +21,7 @@ export default function ResumeSection() {
             ))}
           </div>
 
-          <div className="w-full lg:w-1/2" data-aos="fade-up" data-aos-delay="200">
+          <div className="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <h3 className="resume-title">
               {resumeData.experience.title}
             </h3>

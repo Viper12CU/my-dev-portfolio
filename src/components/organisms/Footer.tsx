@@ -3,16 +3,16 @@ import SocialLink from "@/components/atoms/SocialLink";
 
 export default function Footer() {
   return (
-    <footer id="footer" className="footer relative light-background">
-      <div className="container mx-auto px-4">
+    <footer id="footer" className="footer position-relative light-background">
+      <div className="container">
         <h3 className="sitename">{footerData.name}</h3>
         <p>{footerData.description}</p>
-        <div className="flex justify-center gap-1 mb-8">
+        <div className="social-links d-flex justify-content-center">
           {footerData.socialLinks.map((link, i) => (
             <SocialLink key={i} icon={link.icon} href={link.href} />
           ))}
         </div>
-        <div>
+        <div className="container">
           <div className="copyright">
             <span>Copyright</span>{" "}
             <strong className="px-1 sitename">{footerData.copyright}</strong>{" "}

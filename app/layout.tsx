@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: "Index - MyResume Bootstrap Template",
@@ -13,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={cn("font-sans", geist.variable)}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -38,6 +42,7 @@ export default function RootLayout({
           href="/assets/vendor/swiper/swiper-bundle.min.css"
           rel="stylesheet"
         />
+        <link href="/assets/css/main.css" rel="stylesheet" />
       </head>
       <body className="index-page">
         {children}

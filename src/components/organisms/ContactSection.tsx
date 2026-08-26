@@ -30,23 +30,23 @@ export default function ContactSection() {
         subtitle={contactData.subtitle}
       />
 
-      <div className="container mx-auto px-4" data-aos="fade" data-aos-delay="100">
-        <div className="flex flex-col lg:flex-row gap-8">
-          <div className="w-full lg:w-1/3">
+      <div className="container" data-aos="fade" data-aos-delay="100">
+        <div className="row gy-4">
+          <div className="col-lg-4">
             {contactData.info.map((item, i) => (
               <ContactInfoItem key={i} item={item} />
             ))}
           </div>
 
-          <div className="w-full lg:w-2/3">
+          <div className="col-lg-8">
             <form
               onSubmit={handleSubmit}
               className="php-email-form"
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-                <div>
+              <div className="row gy-4">
+                <div className="col-md-6">
                   <input
                     type="text"
                     name="name"
@@ -57,7 +57,7 @@ export default function ContactSection() {
                     onChange={handleChange}
                   />
                 </div>
-                <div>
+                <div className="col-md-6">
                   <input
                     type="email"
                     className="form-control"
@@ -68,7 +68,7 @@ export default function ContactSection() {
                     onChange={handleChange}
                   />
                 </div>
-                <div className="sm:col-span-2">
+                <div className="col-md-12">
                   <input
                     type="text"
                     className="form-control"
@@ -79,7 +79,7 @@ export default function ContactSection() {
                     onChange={handleChange}
                   />
                 </div>
-                <div className="sm:col-span-2">
+                <div className="col-md-12">
                   <textarea
                     className="form-control"
                     name="message"
@@ -90,7 +90,7 @@ export default function ContactSection() {
                     onChange={handleChange}
                   />
                 </div>
-                <div className="sm:col-span-2 text-center">
+                <div className="col-md-12 text-center">
                   <div className="loading">Loading</div>
                   <div className="error-message" />
                   <div className="sent-message">

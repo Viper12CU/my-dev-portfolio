@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { heroData } from "@/data/hero";
 import SocialLink from "@/components/atoms/SocialLink";
+import { FlipWords } from "../ui/flip-words";
 
 export default function HeroSection() {
   const typedRef = useRef<HTMLSpanElement>(null);
@@ -28,20 +29,22 @@ export default function HeroSection() {
     <section id="hero" className="hero section light-background">
       <img src="/assets/img/hero-bg.jpg" alt="" />
 
-      <div className="container mx-auto px-4 relative z-10" data-aos="zoom-out">
-        <div className="flex justify-center">
-          <div className="w-full max-w-3xl">
+      <div className="container" data-aos="zoom-out">
+        <div className="row justify-content-center">
+          <div className="col-lg-9">
             <h2>{heroData.name}</h2>
-            <p>
+            <div className="hero-typed">
               I&apos;m{" "}
-              <span ref={typedRef} className="typed">
-                {heroData.typedItems[0]}
-              </span>
+              <FlipWords
+              duration={1100}
+                words={heroData.typedItems}
+                className="hero-flip-words"
+              />
               <span
                 className="typed-cursor typed-cursor--blink"
                 aria-hidden="true"
               />
-            </p>
+            </div>
             <div className="social-links">
               {heroData.socialLinks.map((link, i) => (
                 <SocialLink key={i} icon={link.icon} href={link.href} />

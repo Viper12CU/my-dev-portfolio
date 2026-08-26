@@ -49,7 +49,7 @@ export default function PortfolioSection() {
         subtitle={portfolioData.subtitle}
       />
 
-      <div className="container mx-auto px-4">
+      <div className="container">
         <div
           ref={containerRef}
           className="isotope-layout"
@@ -58,7 +58,7 @@ export default function PortfolioSection() {
           data-sort="original-order"
         >
           <ul
-            className="portfolio-filters isotope-filters mb-8"
+            className="portfolio-filters isotope-filters "
             data-aos="fade-up"
             data-aos-delay="100"
           >
@@ -75,7 +75,7 @@ export default function PortfolioSection() {
           </ul>
 
           <div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 isotope-container"
+            className="row gy-4 isotope-container"
             data-aos="fade-up"
             data-aos-delay="200"
           >
