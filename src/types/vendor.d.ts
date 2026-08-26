@@ -38,6 +38,10 @@ declare module "swiper" {
     speed?: number;
     autoplay?: { delay: number };
     slidesPerView?: string | number;
+    navigation?: {
+      nextEl?: string;
+      prevEl?: string;
+    };
     pagination?: {
       el: string;
       type: string;

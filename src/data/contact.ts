@@ -13,17 +13,17 @@ export interface ContactData {
 export const contactData: ContactData = {
   title: "Contact",
   subtitle:
-    "¿Tienes un proyecto web? Hablemos sobre cómo convertir tu idea en un producto claro, sólido y mantenible.",
+    "Do you have a project? Let’s talk about turning your idea into a clear, solid, and maintainable product.",
   info: [
-    {
-      icon: "bi-geo-alt",
-      title: "Ubicación",
-      content: "La Habana, Cuba",
-    },
     {
       icon: "bi-envelope",
       title: "Email",
       content: "fabianalejandrolemus@gmail.com",
+    },
+    {
+      icon: "bi-telephone",
+      title: "Teléfono",
+      content: "+53 58816764",
     },
   ],
 };
