@@ -16,25 +16,25 @@ export interface DetailItem {
 export const aboutData: AboutData = {
   title: "About",
   subtitle:
-    "Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.",
+    "I am a full-stack developer interested in building clear, solid, and maintainable products. I enjoy bringing design and technology together to create experiences that work well, feel great, and have purpose. I like turning complexity into something simple without losing impact or quality.",
   imageUrl: "/assets/img/profile-img.jpg",
-  role: "UI/UX Designer & Web Developer.",
+  role: "Full Stack Developer",
   bio1:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "I specialize in developing complete web applications, from the initial idea to implementation. I combine frontend, backend, and architecture to create products that are fast, scalable, and easy to maintain.",
   bio2:
-    "Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis. Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque.",
+    "In every project, I aim to understand the real problem, not just the requirements. I analyze the context, propose practical solutions, and lay the technical foundation for growth without friction. I care as much about the visible result as I do about what happens behind the scenes: architecture, performance, and best practices.",
   details: {
     left: [
-      { label: "Birthday", value: "1 May 1995" },
-      { label: "Website", value: "www.example.com" },
-      { label: "Phone", value: "+123 456 7890" },
-      { label: "City", value: "New York, USA" },
+      { label: "Location", value: "Havana, Cuba" },
+      { label: "Specialty", value: "Full Stack Development" },
+      { label: "Focus", value: "Web Applications" },
+      { label: "Work Mode", value: "Remote" },
     ],
     right: [
-      { label: "Age", value: "30" },
-      { label: "Degree", value: "Master" },
-      { label: "Email", value: "email@example.com" },
-      { label: "Freelance", value: "Available" },
+      { label: "Education", value: "Systems Engineering" },
+      { label: "Email", value: "fabianalejandrolemus@gmail.com" },
+      { label: "Availability", value: "Open to opportunities" },
+      { label: "Approach", value: "Clean & Maintainable Code" },
     ],
   },
 };

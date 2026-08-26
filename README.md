@@ -33,8 +33,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser.
 
 ### Production
 
+Set `NEXT_PUBLIC_SITE_URL` to the public HTTPS URL before deploying. This value is used by the canonical URL, Open Graph metadata, structured data, `robots.txt`, and `sitemap.xml`.
+
 ```bash
-pnpm build
+NEXT_PUBLIC_SITE_URL=https://your-domain.com pnpm build
 pnpm start
 ```
 

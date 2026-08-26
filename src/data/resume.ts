@@ -2,6 +2,7 @@ export interface ResumeItem {
   title: string;
   period?: string;
   institution?: string;
+  institutionUrl?: string;
   description?: string;
   bullets?: string[];
 }
@@ -22,33 +23,41 @@ export interface ResumeData {
 export const resumeData: ResumeData = {
   title: "Resume",
   subtitle:
-    "Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.",
+    "A concise overview of my education, experience, and the path that has shaped my work as a full-stack developer.",
   summary: {
-    title: "Brandon Johnson",
+    title: "Fabian Lemus",
     description:
-      "Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.",
+      "Full-stack developer and systems engineer focused on building reliable web applications from idea to implementation. I combine frontend, backend, databases, and practical architecture to create clear, scalable, and maintainable digital products.",
     bullets: [
-      "Portland par 127,Orlando, FL",
-      "(123) 456-7891",
-      "alice.barkley@example.com",
+      "Systems Engineer",
+      "Frontend & Backend Development",
+      "Open to Opportunities",
     ],
   },
   education: {
     title: "Education",
     items: [
       {
-        title: "Master of Fine Arts & Graphic Design",
-        period: "2015 - 2016",
-        institution: "Rochester Institute of Technology, Rochester, NY",
+        title: "Systems Engineering",
+        period: "Sep 2022 - Jul 2024",
+        institution: "Universidad Máximo Gómez Báez de Ciego de Ávila, Cuba",
+        institutionUrl: "https://www.unica.cu/",
         description:
-          "Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend",
+          "Built a strong foundation in software development, systems analysis, databases, and information technology. Developed the ability to understand complex problems, design practical solutions, and apply structured engineering principles to real-world projects.",
       },
       {
-        title: "Bachelor of Fine Arts & Graphic Design",
-        period: "2010 - 2014",
-        institution: "Rochester Institute of Technology, Rochester, NY",
+        title: "CS50's Web Programming with Python and JavaScript",
+        institution: "Harvard University (edX)",
+        institutionUrl: "https://cs50.harvard.edu/web/2020/",
         description:
-          "Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila",
+          "An intensive course covering web development with Python and JavaScript, focusing on building dynamic web applications.",
+      },
+      {
+        title: "B1 English for Developers Certification",
+        institution: "freeCodeCamp.org",
+        institutionUrl: "https://www.freecodecamp.org/learn/b1-english-for-developers",
+        description:
+          "A certification demonstrating proficiency in English for developers, covering technical vocabulary, reading comprehension, and communication skills in a professional context.",
       },
     ],
   },
@@ -56,25 +65,15 @@ export const resumeData: ResumeData = {
     title: "Professional Experience",
     items: [
       {
-        title: "Senior graphic design specialist",
-        period: "2019 - Present",
-        institution: "Experion, New York, NY",
+        title: "Full Stack Developer",
+        period: "2024 Dic - 2026 Ene",
+        institution: "Bioplantas Center for Plant Biotechnology",
+        institutionUrl: "https://www.bioplantas.cu/",
         bullets: [
-          "Lead in the design, development, and implementation of the graphic, layout, and production communication materials",
-          "Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project.",
-          "Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design",
-          "Oversee the efficient use of production project budgets ranging from $2,000 - $25,000",
-        ],
-      },
-      {
-        title: "Graphic design specialist",
-        period: "2017 - 2018",
-        institution: "Stepping Stone Advertising, New York, NY",
-        bullets: [
-          "Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).",
-          "Managed up to 5 projects or tasks at a given time while under pressure",
-          "Recommended and consulted with clients on the most appropriate graphic design",
-          "Created 4+ design presentations and proposals a month for clients and account managers",
+         "Developed and maintained web applications using React, Node.js, and PostgreSQL, ensuring high performance and responsiveness.",
+         "Collaborated with cross-functional teams to define, design, and ship new features, improving user experience and functionality.",
+         "Implemented RESTful APIs and integrated third-party services to enhance application capabilities.",
+         "Optimized applications for maximum speed and scalability, resulting in a 30% improvement in load times.",
         ],
       },
     ],

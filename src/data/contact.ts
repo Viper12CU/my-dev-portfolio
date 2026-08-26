@@ -12,22 +12,18 @@ export interface ContactData {
 
 export const contactData: ContactData = {
   title: "Contact",
-  subtitle: "Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit",
+  subtitle:
+    "¿Tienes un proyecto web? Hablemos sobre cómo convertir tu idea en un producto claro, sólido y mantenible.",
   info: [
     {
       icon: "bi-geo-alt",
-      title: "Address",
-      content: "A108 Adam Street, New York, NY 535022",
-    },
-    {
-      icon: "bi-telephone",
-      title: "Call Us",
-      content: "+1 5589 55488 55",
+      title: "Ubicación",
+      content: "La Habana, Cuba",
     },
     {
       icon: "bi-envelope",
-      title: "Email Us",
-      content: "info@example.com",
+      title: "Email",
+      content: "fabianalejandrolemus@gmail.com",
     },
   ],
 };
