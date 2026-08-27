@@ -25,7 +25,7 @@ export default function PortfolioDetailSection({ item }: PortfolioDetailSectionP
             {item.detailImages.map((img, index) => (
               <div key={index} data-blossom-slide className="slide size-full overflow-hidden snap-center">
                 <div className="card size-full">
-                  <Image src={img} alt={`${item.title} - ${index + 1}`} fill sizes="900px" className="object-cover" />
+                  <Image src={img} alt={`${item.title} - ${index + 1}`}  fill sizes="900px" className="object-cover" />
                 </div>
               </div>
             ))}

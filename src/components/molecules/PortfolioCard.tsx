@@ -16,9 +16,18 @@ export default function PortfolioCard({ item }: PortfolioCardProps) {
             <h4>{item.title}</h4>
             <p>{item.description}</p>
           </div>
-          <a href={item.appUrl} title="View application" className="details-link" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+          <span
+            role="button"
+            title="View application"
+            className="details-link"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              window.open(item.appUrl, "_blank", "noopener,noreferrer");
+            }}
+          >
             <Icon name="bi-box-arrow-up-right" />
-          </a>
+          </span>
         </div>
       </Link>
     </div>
