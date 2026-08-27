@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import {
+  BlossomCarousel,
+  BlossomPrev,
+  BlossomNext,
+} from "@blossom-carousel/react";
 import type { PortfolioItem } from "@/data/portfolio";
 
 interface PortfolioDetailSectionProps {
@@ -8,50 +14,50 @@ interface PortfolioDetailSectionProps {
 }
 
 export default function PortfolioDetailSection({ item }: PortfolioDetailSectionProps) {
-  const swiperRef = useRef<HTMLDivElement>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const totalSlides = item.detailImages.length;
 
   useEffect(() => {
-    const initSwiper = async () => {
-      const Swiper = (await import("swiper")).default;
-      const { Navigation, Pagination, Autoplay } = await import("swiper/modules");
+    const el = document.getElementById("portfolio-carousel");
+    if (!el) return;
 
-      if (swiperRef.current) {
-        new Swiper(swiperRef.current, {
-          modules: [Navigation, Pagination, Autoplay],
-          loop: true,
-          speed: 600,
-          autoplay: { delay: 5000 },
-          slidesPerView: "auto",
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
-          pagination: {
-            el: ".swiper-pagination",
-            type: "bullets",
-            clickable: true,
-          },
-        });
-      }
+    const handleScroll = () => {
+      const { scrollLeft, clientWidth } = el;
+      const index = Math.round(scrollLeft / clientWidth);
+      setCurrentIndex(index);
     };
 
-    initSwiper();
+    el.addEventListener("scroll", handleScroll);
+    return () => el.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <section id="portfolio-details" className="portfolio-details section">
       <div className="container" data-aos="fade-up">
-        <div ref={swiperRef} className="portfolio-details-slider swiper init-swiper">
-          <div className="swiper-wrapper align-items-center">
-            {item.images.map((img, index) => (
-              <div key={index} className="swiper-slide">
-                <img src={img} alt={`${item.title} - ${index + 1}`} />
+        <div className="bloom-carousel-container">
+          <BlossomCarousel
+            id="portfolio-carousel"
+            className="grid! h-90 snap-x snap-mandatory auto-cols-[100%] grid-flow-col"
+          >
+            {item.detailImages.map((img, index) => (
+              <div key={index} className="slide size-full overflow-hidden snap-center">
+                <div className="card size-full">
+                  <Image src={img} alt={`${item.title} - ${index + 1}`} width={900} height={600} className="h-full w-full object-cover" />
+                </div>
               </div>
             ))}
-          </div>
-          <div className="swiper-button-prev"></div>
-          <div className="swiper-button-next"></div>
-          <div className="swiper-pagination"></div>
+          </BlossomCarousel>
+
+          {currentIndex > 0 && (
+            <BlossomPrev for="portfolio-carousel" className="bloom-btn bloom-btn-prev">
+              <i className="bi bi-chevron-left"></i>
+            </BlossomPrev>
+          )}
+          {currentIndex < totalSlides - 1 && (
+            <BlossomNext for="portfolio-carousel" className="bloom-btn bloom-btn-next">
+              <i className="bi bi-chevron-right"></i>
+            </BlossomNext>
+          )}
         </div>
 
         <div className="row justify-content-between gy-4 mt-4">

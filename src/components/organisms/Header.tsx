@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { usePathname } from "next/navigation";
 import { MorphIcon } from "morphicons/react";
 import { Menu, X } from "lucide";
 import { navItems } from "@/data/navigation";
@@ -9,6 +10,8 @@ import NavItemMolecule from "@/components/molecules/NavItem";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("#hero");
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   const toggle = useCallback(() => {
     setIsOpen((prev) => !prev);
@@ -62,6 +65,7 @@ export default function Header() {
               item={item}
               isActive={activeSection === item.href}
               onClick={handleNavClick}
+              isHomePage={isHomePage}
             />
           ))}
         </ul>

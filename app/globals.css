@@ -755,6 +755,75 @@
   flex-shrink: 0;
 }
 
+/* Blossom Carousel - Portfolio Detail */
+.bloom-carousel-container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.slide {
+  view-timeline: --slide inline;
+}
+
+.slide .card {
+  animation: parallax linear both;
+  animation-timeline: --slide;
+  animation-range: cover;
+}
+
+@keyframes parallax {
+  0% {
+    transform: translateX(-50%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+.bloom-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--accent-color, #0563bb);
+  color: var(--contrast-color, #fff);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 18px;
+}
+
+.bloom-btn-prev {
+  left: 12px;
+}
+
+.bloom-btn-next {
+  right: 12px;
+}
+
+.bloom-btn:hover {
+  background-color: color-mix(in srgb, var(--accent-color, #0563bb), transparent 15%);
+  transform: translateY(-50%) scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .bloom-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

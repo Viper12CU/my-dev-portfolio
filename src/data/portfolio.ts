@@ -9,7 +9,7 @@ export interface PortfolioItem {
   client: string;
   projectDate: string;
   technologies: string[];
-  images: string[];
+  detailImages: string[];
   detailsDescription: string[];
 }
 
@@ -46,10 +46,11 @@ export const portfolioData: PortfolioData = {
       client: "TechStore Inc.",
       projectDate: "Enero 2024",
       technologies: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Tailwind CSS"],
-      images: [
+      detailImages: [
         "/assets/img/masonry-portfolio/masonry-portfolio-1.jpg",
+        "/assets/img/masonry-portfolio/masonry-portfolio-2.jpg",
+        "/assets/img/masonry-portfolio/masonry-portfolio-3.jpg",
         "/assets/img/portfolio/app-1.jpg",
-        "/assets/img/portfolio/app-2.jpg",
       ],
       detailsDescription: [
         "Plataforma de comercio electrónico completa diseñada para una tienda de tecnología. Incluye catálogo de productos, carrito de compras, sistema de pagos con Stripe, y panel de administración para gestionar inventario y pedidos.",
@@ -68,10 +69,11 @@ export const portfolioData: PortfolioData = {
       client: "StartupXYZ",
       projectDate: "Marzo 2024",
       technologies: ["React", "Node.js", "Socket.io", "MongoDB", "Redis"],
-      images: [
+      detailImages: [
         "/assets/img/masonry-portfolio/masonry-portfolio-2.jpg",
+        "/assets/img/masonry-portfolio/masonry-portfolio-4.jpg",
+        "/assets/img/masonry-portfolio/masonry-portfolio-5.jpg",
         "/assets/img/portfolio/product-1.jpg",
-        "/assets/img/portfolio/product-2.jpg",
       ],
       detailsDescription: [
         "Aplicación de gestión de tareas diseñada para equipos remotos. Permite crear proyectos, asignar tareas, establecer plazos y colaborar en tiempo real con actualizaciones instantáneas.",
@@ -90,10 +92,11 @@ export const portfolioData: PortfolioData = {
       client: "InnovateTech",
       projectDate: "Febrero 2024",
       technologies: ["Figma", "Illustrator", "After Effects", "CSS", "SVG"],
-      images: [
+      detailImages: [
         "/assets/img/masonry-portfolio/masonry-portfolio-3.jpg",
+        "/assets/img/masonry-portfolio/masonry-portfolio-6.jpg",
+        "/assets/img/masonry-portfolio/masonry-portfolio-7.jpg",
         "/assets/img/portfolio/branding-1.jpg",
-        "/assets/img/portfolio/branding-2.jpg",
       ],
       detailsDescription: [
         "Desarrollo de un sistema de identidad visual completo para una empresa de tecnología emergente. El proyecto incluyó logo, paleta de colores, tipografía, y guidelines de marca.",
@@ -112,10 +115,11 @@ export const portfolioData: PortfolioData = {
       client: "FitLife Co.",
       projectDate: "Abril 2024",
       technologies: ["React Native", "Firebase", "Redux", "Chart.js", "Node.js"],
-      images: [
+      detailImages: [
         "/assets/img/masonry-portfolio/masonry-portfolio-4.jpg",
-        "/assets/img/portfolio/app-3.jpg",
-        "/assets/img/portfolio/app-4.jpg",
+        "/assets/img/masonry-portfolio/masonry-portfolio-5.jpg",
+        "/assets/img/masonry-portfolio/masonry-portfolio-8.jpg",
+        "/assets/img/portfolio/app-1.jpg",
       ],
       detailsDescription: [
         "Aplicación móvil multiplataforma para el seguimiento de rutinas de ejercicio y planes de nutrición. Los usuarios pueden registrar entrenamientos, monitorear progreso y recibir recomendaciones personalizadas.",
@@ -134,10 +138,11 @@ export const portfolioData: PortfolioData = {
       client: "DataViz Corp.",
       projectDate: "Mayo 2024",
       technologies: ["Vue.js", "D3.js", "Python", "FastAPI", "ClickHouse"],
-      images: [
+      detailImages: [
         "/assets/img/masonry-portfolio/masonry-portfolio-5.jpg",
-        "/assets/img/portfolio/product-3.jpg",
-        "/assets/img/portfolio/product-4.jpg",
+        "/assets/img/masonry-portfolio/masonry-portfolio-6.jpg",
+        "/assets/img/masonry-portfolio/masonry-portfolio-7.jpg",
+        "/assets/img/portfolio/product-1.jpg",
       ],
       detailsDescription: [
         "Dashboard de analytics empresarial con visualización de datos en tiempo real. Permite monitorear KPIs, generar reportes automáticos y tomar decisiones basadas en datos.",
@@ -156,10 +161,11 @@ export const portfolioData: PortfolioData = {
       client: "Gourmet Bites",
       projectDate: "Junio 2024",
       technologies: ["Figma", "Photoshop", "InDesign", "Blender", "CSS"],
-      images: [
+      detailImages: [
         "/assets/img/masonry-portfolio/masonry-portfolio-6.jpg",
-        "/assets/img/portfolio/branding-3.jpg",
-        "/assets/img/portfolio/branding-4.jpg",
+        "/assets/img/masonry-portfolio/masonry-portfolio-8.jpg",
+        "/assets/img/masonry-portfolio/masonry-portfolio-9.jpg",
+        "/assets/img/portfolio/branding-1.jpg",
       ],
       detailsDescription: [
         "Creación de identidad de marca completa para una cadena de restaurantes gourmet. El proyecto abarcó desde el concepto hasta la implementación en todos los puntos de contacto.",
@@ -178,10 +184,11 @@ export const portfolioData: PortfolioData = {
       client: "EduTech Academy",
       projectDate: "Julio 2024",
       technologies: ["Next.js", "Prisma", "PostgreSQL", "AWS S3", "Stripe"],
-      images: [
+      detailImages: [
         "/assets/img/masonry-portfolio/masonry-portfolio-7.jpg",
-        "/assets/img/portfolio/app-5.jpg",
-        "/assets/img/portfolio/app-6.jpg",
+        "/assets/img/masonry-portfolio/masonry-portfolio-9.jpg",
+        "/assets/img/masonry-portfolio/masonry-portfolio-1.jpg",
+        "/assets/img/portfolio/app-1.jpg",
       ],
       detailsDescription: [
         "Plataforma de e-learning completa con sistema de cursos, lecciones video, quizzes y seguimiento de progreso. Incluye panel de instructor y sistema de pagos por curso.",
@@ -200,10 +207,11 @@ export const portfolioData: PortfolioData = {
       client: "MediaPro Agency",
       projectDate: "Agosto 2024",
       technologies: ["Svelte", "Supabase", "Tailwind CSS", "Canvas API", "Cron"],
-      images: [
+      detailImages: [
         "/assets/img/masonry-portfolio/masonry-portfolio-8.jpg",
-        "/assets/img/portfolio/product-5.jpg",
-        "/assets/img/portfolio/product-6.jpg",
+        "/assets/img/masonry-portfolio/masonry-portfolio-2.jpg",
+        "/assets/img/masonry-portfolio/masonry-portfolio-3.jpg",
+        "/assets/img/portfolio/product-1.jpg",
       ],
       detailsDescription: [
         "Herramienta integral para la gestión de contenido en redes sociales. Permite programar publicaciones, analizar métricas y gestionar múltiples cuentas desde un solo panel.",
@@ -222,10 +230,11 @@ export const portfolioData: PortfolioData = {
       client: "Global Solutions Ltd.",
       projectDate: "Septiembre 2024",
       technologies: ["Next.js", "Sanity CMS", "Tailwind CSS", "Framer Motion", "Vercel"],
-      images: [
+      detailImages: [
         "/assets/img/masonry-portfolio/masonry-portfolio-9.jpg",
-        "/assets/img/portfolio/branding-5.jpg",
-        "/assets/img/portfolio/branding-6.jpg",
+        "/assets/img/masonry-portfolio/masonry-portfolio-1.jpg",
+        "/assets/img/masonry-portfolio/masonry-portfolio-4.jpg",
+        "/assets/img/portfolio/branding-1.jpg",
       ],
       detailsDescription: [
         "Sitio web corporativo moderno con CMS headless para facilitar la actualización de contenido por parte del equipo de marketing. Incluye sección de servicios, casos de éxito y blog.",
