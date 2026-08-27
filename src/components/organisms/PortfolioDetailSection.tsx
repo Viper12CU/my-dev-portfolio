@@ -16,26 +16,28 @@ export default function PortfolioDetailSection({ item }: PortfolioDetailSectionP
   return (
     <section id="portfolio-details" className="portfolio-details section">
       <div className="container" data-aos="fade-up">
-        <div className="bloom-carousel-container">
+        <div className="bloom-carousel-wrapper">
+          <div className="bloom-carousel-container">
           <BlossomCarousel
             id="portfolio-carousel"
-            className="carousel"
+            className="carousel grid! h-full snap-x snap-mandatory auto-cols-[100%] grid-flow-col"
           >
             {item.detailImages.map((img, index) => (
-              <div key={index} data-blossom-slide className="slide">
-                <div className="card">
-                  <Image src={img} alt={`${item.title} - ${index + 1}`} width={900} height={600} className="h-full w-full object-cover" />
+              <div key={index} data-blossom-slide className="slide size-full overflow-hidden snap-center">
+                <div className="card size-full">
+                  <Image src={img} alt={`${item.title} - ${index + 1}`} fill sizes="900px" className="object-cover" />
                 </div>
               </div>
             ))}
-          </BlossomCarousel>
+            </BlossomCarousel>
 
-          <BlossomPrev for="portfolio-carousel" className="bloom-btn bloom-btn-prev">
-            <i className="bi bi-chevron-left"></i>
-          </BlossomPrev>
-          <BlossomNext for="portfolio-carousel" className="bloom-btn bloom-btn-next">
-            <i className="bi bi-chevron-right"></i>
-          </BlossomNext>
+            <BlossomPrev for="portfolio-carousel" className="bloom-btn bloom-btn-prev">
+              <i className="bi bi-chevron-left"></i>
+            </BlossomPrev>
+            <BlossomNext for="portfolio-carousel" className="bloom-btn bloom-btn-next">
+              <i className="bi bi-chevron-right"></i>
+            </BlossomNext>
+          </div>
         </div>
 
         <div className="row justify-content-between gy-4 mt-4">

@@ -756,26 +756,46 @@
 }
 
 /* Blossom Carousel - Portfolio Detail */
+.bloom-carousel-wrapper {
+  inline-size: 100%;
+  max-inline-size: 900px;
+  margin-inline: auto;
+}
+
 .bloom-carousel-container {
   position: relative;
+  inline-size: 100%;
+  block-size: 500px;
   overflow: hidden;
-  max-width: 900px;
-  margin: 0 auto;
 }
 
 .carousel {
-  inline-size: 100%;
-  block-size: 28rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  scroll-snap-type: x mandatory;
+  block-size: 100%;
 }
 
-.slide {
+.carousel > .slide {
+  size: 100%;
+  overflow: hidden;
+  scroll-snap-align: center;
   view-timeline: --slide inline;
 }
 
-.slide .card {
+.carousel > .slide .card {
+  size: 100%;
   animation: parallax linear both;
   animation-timeline: --slide;
   animation-range: cover;
+}
+
+.carousel > .slide .card img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
 }
 
 @keyframes parallax {
@@ -823,8 +843,8 @@
 }
 
 @media (max-width: 768px) {
-  .carousel {
-    block-size: 20rem;
+  .bloom-carousel-container {
+    block-size: 300px;
   }
 
   .bloom-btn {
