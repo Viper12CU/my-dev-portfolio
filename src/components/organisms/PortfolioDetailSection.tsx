@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import {
   BlossomCarousel,
@@ -14,50 +13,29 @@ interface PortfolioDetailSectionProps {
 }
 
 export default function PortfolioDetailSection({ item }: PortfolioDetailSectionProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const totalSlides = item.detailImages.length;
-
-  useEffect(() => {
-    const el = document.getElementById("portfolio-carousel");
-    if (!el) return;
-
-    const handleScroll = () => {
-      const { scrollLeft, clientWidth } = el;
-      const index = Math.round(scrollLeft / clientWidth);
-      setCurrentIndex(index);
-    };
-
-    el.addEventListener("scroll", handleScroll);
-    return () => el.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <section id="portfolio-details" className="portfolio-details section">
       <div className="container" data-aos="fade-up">
         <div className="bloom-carousel-container">
           <BlossomCarousel
             id="portfolio-carousel"
-            className="grid! h-90 snap-x snap-mandatory auto-cols-[100%] grid-flow-col"
+            className="carousel"
           >
             {item.detailImages.map((img, index) => (
-              <div key={index} className="slide size-full overflow-hidden snap-center">
-                <div className="card size-full">
+              <div key={index} data-blossom-slide className="slide">
+                <div className="card">
                   <Image src={img} alt={`${item.title} - ${index + 1}`} width={900} height={600} className="h-full w-full object-cover" />
                 </div>
               </div>
             ))}
           </BlossomCarousel>
 
-          {currentIndex > 0 && (
-            <BlossomPrev for="portfolio-carousel" className="bloom-btn bloom-btn-prev">
-              <i className="bi bi-chevron-left"></i>
-            </BlossomPrev>
-          )}
-          {currentIndex < totalSlides - 1 && (
-            <BlossomNext for="portfolio-carousel" className="bloom-btn bloom-btn-next">
-              <i className="bi bi-chevron-right"></i>
-            </BlossomNext>
-          )}
+          <BlossomPrev for="portfolio-carousel" className="bloom-btn bloom-btn-prev">
+            <i className="bi bi-chevron-left"></i>
+          </BlossomPrev>
+          <BlossomNext for="portfolio-carousel" className="bloom-btn bloom-btn-next">
+            <i className="bi bi-chevron-right"></i>
+          </BlossomNext>
         </div>
 
         <div className="row justify-content-between gy-4 mt-4">

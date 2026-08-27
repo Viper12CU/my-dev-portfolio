@@ -91,9 +91,8 @@ export default function RootLayout({
           href="/assets/vendor/swiper/swiper-bundle.min.css"
           rel="stylesheet"
         />
-        {/* eslint-disable-next-line @next/next/no-css-tags */}
         <link
-          href="https://cdn.jsdelivr.net/npm/@blossom-carousel/react@1.5.2/style.css"
+          href="https://cdn.jsdelivr.net/npm/@blossom-carousel/react@1.5.2/dist/blossom-carousel-react.css"
           rel="stylesheet"
         />
         {/* eslint-disable-next-line @next/next/no-css-tags */}

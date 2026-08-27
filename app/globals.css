@@ -758,8 +758,14 @@
 /* Blossom Carousel - Portfolio Detail */
 .bloom-carousel-container {
   position: relative;
+  overflow: hidden;
   max-width: 900px;
   margin: 0 auto;
+}
+
+.carousel {
+  inline-size: 100%;
+  block-size: 28rem;
 }
 
 .slide {
@@ -817,6 +823,10 @@
 }
 
 @media (max-width: 768px) {
+  .carousel {
+    block-size: 20rem;
+  }
+
   .bloom-btn {
     width: 36px;
     height: 36px;
