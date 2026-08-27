@@ -12,7 +12,7 @@ export default function AboutSection() {
             <img
               src={aboutData.imageUrl}
               className="img-fluid"
-              alt=""
+              alt="Fabian Lemus, desarrollador full-stack"
             />
           </div>
           <div className="col-lg-8 content">

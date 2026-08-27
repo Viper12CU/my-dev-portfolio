@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ServiceItem } from "@/data/services";
 import Icon from "@/components/atoms/Icon";
 
@@ -24,9 +25,9 @@ export default function ServiceCard({ item }: ServiceCardProps) {
         </svg>
         <Icon name={item.icon} />
       </div>
-      <a href="#" className="stretched-link">
+      <Link href={`/services/${item.slug}`} className="stretched-link">
         <h3>{item.title}</h3>
-      </a>
+      </Link>
       <p>{item.description}</p>
     </div>
   );

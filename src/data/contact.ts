@@ -12,22 +12,18 @@ export interface ContactData {
 
 export const contactData: ContactData = {
   title: "Contact",
-  subtitle: "Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit",
+  subtitle:
+    "Do you have a project? Let’s talk about turning your idea into a clear, solid, and maintainable product.",
   info: [
     {
-      icon: "bi-geo-alt",
-      title: "Address",
-      content: "A108 Adam Street, New York, NY 535022",
+      icon: "bi-envelope",
+      title: "Email",
+      content: "fabianalejandrolemus@gmail.com",
     },
     {
       icon: "bi-telephone",
-      title: "Call Us",
-      content: "+1 5589 55488 55",
-    },
-    {
-      icon: "bi-envelope",
-      title: "Email Us",
-      content: "info@example.com",
+      title: "Teléfono",
+      content: "+53 58816764",
     },
   ],
 };

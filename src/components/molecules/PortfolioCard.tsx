@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { PortfolioItem } from "@/data/portfolio";
 import Icon from "@/components/atoms/Icon";
 
@@ -8,22 +9,27 @@ interface PortfolioCardProps {
 export default function PortfolioCard({ item }: PortfolioCardProps) {
   return (
     <div className="col-lg-4 col-md-6 portfolio-item isotope-item">
-      <img src={item.imageUrl} className="img-fluid" alt={item.title} />
-      <div className="portfolio-info">
-        <h4>{item.title}</h4>
-        <p>{item.description}</p>
-        <a
-          href={item.imageUrl}
-          title={item.title}
-          data-gallery={item.gallery}
-          className="glightbox preview-link"
-        >
-          <Icon name="bi-zoom-in" />
-        </a>
-        <a href={item.link} title="More Details" className="details-link">
-          <Icon name="bi-link-45deg" />
-        </a>
-      </div>
+      <Link href={`/portfolio/${item.id}`} className="portfolio-card-link">
+        <img src={item.imageUrl} className="img-fluid" alt={item.title} />
+        <div className="portfolio-info">
+          <div className="portfolio-info-content">
+            <h4>{item.title}</h4>
+            <p>{item.description}</p>
+          </div>
+          <span
+            role="button"
+            title="View application"
+            className="details-link"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              window.open(item.appUrl, "_blank", "noopener,noreferrer");
+            }}
+          >
+            <Icon name="bi-box-arrow-up-right" />
+          </span>
+        </div>
+      </Link>
     </div>
   );
 }

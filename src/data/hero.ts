@@ -8,9 +8,8 @@ export const heroData: HeroData = {
   name: "Fabian Lemus",
   typedItems: ["Developer", "Freelancer", "Designer"],
   socialLinks: [
-    { icon: "bi-twitter-x", href: "#" },
-    { icon: "bi-facebook", href: "#" },
-    { icon: "bi-instagram", href: "#" },
     { icon: "bi-linkedin", href: "#" },
+    { icon: "bi-github", href: "#" },
+    { icon: "bi-telegram", href: "#" },
   ],
 };

@@ -12,15 +12,20 @@ export interface SkillsData {
 
 export const skillsData: SkillsData = {
   title: "Skills",
-  subtitle: "Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit",
+  subtitle:
+    "A practical toolkit for building reliable, scalable, and user-centered digital products.",
   left: [
-    { name: "HTML", percentage: 100 },
-    { name: "CSS", percentage: 90 },
-    { name: "JavaScript", percentage: 75 },
+    { name: "Frontend & UX", percentage: 100 },
+    { name: "Backend & APIs", percentage: 90 },
+    { name: "Databases & SQL", percentage: 75 },
+    { name: "UI Design", percentage: 70 },
+    { name: "Flutter & Dart", percentage: 80 },
   ],
   right: [
-    { name: "PHP", percentage: 80 },
+    { name: "AI Tools", percentage: 80 },
+    { name: "Git & Collaboration", percentage: 84 },
     { name: "WordPress/CMS", percentage: 90 },
-    { name: "Photoshop", percentage: 55 },
+    { name: "Quality & Testing", percentage: 75 },
+    { name: "Mobile UI Development", percentage: 75 },
   ],
 };

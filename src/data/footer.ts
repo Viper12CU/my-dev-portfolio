@@ -6,15 +6,13 @@ export interface FooterData {
 }
 
 export const footerData: FooterData = {
-  name: "Brandon Johnson",
+  name: "Fabian Lemus",
   description:
-    "Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.",
+    "I am a full-stack developer interested in building clear, solid, and maintainable products. I enjoy bringing design and technology together to create experiences that work well, feel great, and have purpose. I like turning complexity into something simple without losing impact or quality.",
   socialLinks: [
-    { icon: "bi-twitter-x", href: "" },
-    { icon: "bi-facebook", href: "" },
-    { icon: "bi-instagram", href: "" },
-    { icon: "bi-skype", href: "" },
-    { icon: "bi-linkedin", href: "" },
+    { icon: "bi-linkedin", href: "#" },
+    { icon: "bi-github", href: "#" },
+    { icon: "bi-telegram", href: "#" },
   ],
-  copyright: "Alex Smith",
+  copyright: "Fabian Lemus",
 };

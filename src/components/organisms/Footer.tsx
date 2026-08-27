@@ -18,13 +18,15 @@ export default function Footer() {
             <strong className="px-1 sitename">{footerData.copyright}</strong>{" "}
             <span>All Rights Reserved</span>
           </div>
-          <div className="credits">
-            Designed by{" "}
-            <a href="https://bootstrapmade.com/">BootstrapMade</a>{" "}
-            Distribuited by{" "}
-            <a href="https://themewagon.com">ThemeWagon</a>
+            <span>Template and code on my GitHub. </span>
+            <a
+              href="https://github.com/Viper12CU/my-dev-portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View this website repository
+            </a>
           </div>
-        </div>
       </div>
     </footer>
   );
