@@ -10,7 +10,7 @@ function getEnv() {
 
   if (!phone || !apiKey) {
     throw new Error(
-      "Faltan variables de entorno: CALLMEBOT_PHONE y CALLMEBOT_API_KEY deben estar definidas en .env.local"
+      "Faltan variables de entorno: CALLMEBOT_PHONE y CALLMEBOT_API_KEY deben estar definidas en .env.local",
     );
   }
 
@@ -28,11 +28,11 @@ export async function sendCallMeBotMessage(payload: CallMeBotPayload) {
   const { phone, apiKey } = getEnv();
 
   const text = [
-    `Nuevo mensaje desde portfolio:`,
-    `Nombre: ${payload.name}`,
-    `Email: ${payload.email}`,
-    payload.phone ? `Telefono: ${payload.phone}` : null,
-    `Mensaje: ${payload.message}`,
+    `🆕 *Nuevo mensaje desde portfolio* 🆕:`,
+    `🙋🏻 *Nombre:* ${payload.name}`,
+    `📬 *Email:* ${payload.email}`,
+    payload.phone ? `📱 *Telefono:* ${payload.phone}` : null,
+    `💌 *Mensaje:* ${payload.message}`,
   ]
     .filter(Boolean)
     .join("\n");
