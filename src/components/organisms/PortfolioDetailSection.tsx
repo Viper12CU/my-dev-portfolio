@@ -1,5 +1,6 @@
 "use client";
 
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import {
   BlossomCarousel,
@@ -32,10 +33,10 @@ export default function PortfolioDetailSection({ item }: PortfolioDetailSectionP
             </BlossomCarousel>
 
             <BlossomPrev for="portfolio-carousel" className="bloom-btn bloom-btn-prev">
-              <i className="bi bi-chevron-left"></i>
+              <ChevronLeft size={24} />
             </BlossomPrev>
             <BlossomNext for="portfolio-carousel" className="bloom-btn bloom-btn-next">
-              <i className="bi bi-chevron-right"></i>
+              <ChevronRight size={24} />
             </BlossomNext>
           </div>
         </div>

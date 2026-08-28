@@ -29,7 +29,7 @@ export default function ScrollTop() {
         scrollToTop();
       }}
     >
-      <Icon name="bi-arrow-up-short" />
+      <Icon name="ArrowUp" />
     </a>
   );
 }

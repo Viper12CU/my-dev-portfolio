@@ -1,3 +1,5 @@
+import Icon from "@/components/atoms/Icon";
+
 interface SocialLinkProps {
   icon: string;
   href: string;
@@ -6,7 +8,7 @@ interface SocialLinkProps {
 export default function SocialLink({ icon, href }: SocialLinkProps) {
   return (
     <a href={href}>
-      <i className={`bi ${icon}`} />
+      <Icon name={icon} />
     </a>
   );
 }

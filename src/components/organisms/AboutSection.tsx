@@ -1,3 +1,4 @@
+import { ChevronRight, Download } from "lucide-react";
 import { aboutData } from "@/data/about";
 import SectionTitle from "@/components/atoms/SectionTitle";
 
@@ -23,7 +24,7 @@ export default function AboutSection() {
                 <ul>
                   {aboutData.details.left.map((detail, i) => (
                     <li key={i}>
-                      <i className="bi bi-chevron-right" />{" "}
+                      <ChevronRight size={16} />{" "}
                       <strong>{detail.label}:</strong>{" "}
                       <span>{detail.value}</span>
                     </li>
@@ -34,7 +35,7 @@ export default function AboutSection() {
                 <ul>
                   {aboutData.details.right.map((detail, i) => (
                     <li key={i}>
-                      <i className="bi bi-chevron-right" />{" "}
+                      <ChevronRight size={16} />{" "}
                       <strong>{detail.label}:</strong>{" "}
                       <span>{detail.value}</span>
                     </li>
@@ -43,6 +44,16 @@ export default function AboutSection() {
               </div>
             </div>
             <p className="py-3">{aboutData.bio2}</p>
+            <div className="about-cta">
+              <a
+                href="/assets/files/cv_fabian_lemus.pdf"
+                download="CV_Fabian_Lemus.pdf"
+                className="btn-about-cv"
+              >
+                <Download size={18} />
+                <span>Descargar CV</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

@@ -16,12 +16,12 @@ export const contactData: ContactData = {
     "Do you have a project? Let’s talk about turning your idea into a clear, solid, and maintainable product.",
   info: [
     {
-      icon: "bi-envelope",
+      icon: "Mail",
       title: "Email",
       content: "fabianalejandrolemus@gmail.com",
     },
     {
-      icon: "bi-telephone",
+      icon: "Phone",
       title: "Teléfono",
       content: "+53 58816764",
     },

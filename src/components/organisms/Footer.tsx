@@ -1,3 +1,4 @@
+import { Download } from "lucide-react";
 import { footerData } from "@/data/footer";
 import SocialLink from "@/components/atoms/SocialLink";
 
@@ -11,6 +12,15 @@ export default function Footer() {
           {footerData.socialLinks.map((link, i) => (
             <SocialLink key={i} icon={link.icon} href={link.href} />
           ))}
+        </div>
+        <div className="footer-cv">
+          <a
+            href="/assets/files/cv_fabian_lemus.pdf"
+            download="CV_Fabian_Lemus.pdf"
+          >
+            <Download size={20} />
+            <span>Descargar CV</span>
+          </a>
         </div>
         <div className="container">
           <div className="copyright">
