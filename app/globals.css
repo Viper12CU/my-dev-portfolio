@@ -716,6 +716,13 @@
   transform: translateX(4px);
 }
 
+/* Service Details - Sidebar sticky en vista monitor (desktop) */
+@media (min-width: 992px) {
+  #service-details {
+    overflow: visible;
+  }
+}
+
 /* Portfolio Card Styles */
 .portfolio-card-link {
   display: block;

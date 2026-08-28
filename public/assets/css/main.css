@@ -222,13 +222,23 @@ h6 {
 .navmenu {
   padding: 0;
   z-index: 9997;
+  interpolate-size: allow-keywords;
 }
 
 .navmenu ul {
   list-style: none;
   padding: 0 0 20px 0;
   margin: 0;
-  width: 140px;
+  width: fit-content;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.navmenu li {
+  width: fit-content;
+  max-width: 100%;
 }
 
 .navmenu a,
@@ -243,9 +253,12 @@ h6 {
   border-radius: 50px;
   background: color-mix(in srgb, var(--default-color), transparent 92%);
   height: 56px;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   overflow: hidden;
-  transition: 0.3s;
+  transition: max-width 0.3s ease, width 0.3s ease, background 0.3s, color 0.3s;
+  white-space: nowrap;
+  interpolate-size: allow-keywords;
 }
 
 .navmenu a svg,
@@ -257,6 +270,7 @@ h6 {
 .navmenu a span,
 .navmenu a:focus span {
   padding: 0 5px 0 7px;
+  white-space: nowrap;
 }
 
 @media (min-width: 992px) {
@@ -282,8 +296,16 @@ h6 {
 
 .navmenu a:hover,
 .navmenu li:hover>a {
-  max-width: 100%;
+  max-width: 280px;
+  width: max-content;
   color: var(--contrast-color);
+}
+
+@supports (interpolate-size: allow-keywords) {
+  .navmenu a:hover,
+  .navmenu li:hover>a {
+    max-width: max-content;
+  }
 }
 
 .navmenu a:hover span,

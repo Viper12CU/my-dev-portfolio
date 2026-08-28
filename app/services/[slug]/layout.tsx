@@ -38,29 +38,31 @@ export default async function ServiceLayout({ children, params }: LayoutProps) {
             <div className="row gy-5">
 
               <div className="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <div className="service-box">
-                  <h4>Services List</h4>
-                  <div className="services-list">
-                    {servicesData.items.map((s) => (
-                      <Link
-                        key={s.slug}
-                        href={`/services/${s.slug}`}
-                        className={s.slug === slug ? "active" : ""}
-                      >
-                        <ArrowRightCircle size={18} />
-                        <span>{s.title}</span>
-                      </Link>
-                    ))}
+                <div className="lg:sticky lg:top-[10px]">
+                  <div className="service-box">
+                    <h4>Services List</h4>
+                    <div className="services-list">
+                      {servicesData.items.map((s) => (
+                        <Link
+                          key={s.slug}
+                          href={`/services/${s.slug}`}
+                          className={s.slug === slug ? "active" : ""}
+                        >
+                          <ArrowRightCircle size={18} />
+                          <span>{s.title}</span>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                </div>
 
-                <div className="help-box d-flex flex-column justify-content-center align-items-center">
-                  <Headphones className="help-icon" size={32} />
-                  <h4>Have a Question?</h4>
-                  <p className="d-flex align-items-center mt-2 mb-0">
-                    <Mail size={16} className="me-2" />
-                    <a href="mailto:fabianalejandrolemus@gmail.com">fabianalejandrolemus@gmail.com</a>
-                  </p>
+                  <div className="help-box d-flex flex-column justify-content-center align-items-center">
+                    <Headphones className="help-icon" size={32} />
+                    <h4>Have a Question?</h4>
+                    <p className="d-flex align-items-center mt-2 mb-0">
+                      <Mail size={16} className="me-2" />
+                      <a href="mailto:fabianalejandrolemus@gmail.com">fabianalejandrolemus@gmail.com</a>
+                    </p>
+                  </div>
                 </div>
               </div>
 

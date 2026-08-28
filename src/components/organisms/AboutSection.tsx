@@ -51,7 +51,7 @@ export default function AboutSection() {
                 className="btn-about-cv"
               >
                 <Download size={18} />
-                <span>Descargar CV</span>
+                <span>Download CV</span>
               </a>
             </div>
           </div>
