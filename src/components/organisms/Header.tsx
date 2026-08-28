@@ -8,17 +8,36 @@ import { Download } from "lucide-react";
 import { navItems } from "@/data/navigation";
 import NavItemMolecule from "@/components/molecules/NavItem";
 
+function getActiveSectionForPath(pathname: string): string | null {
+  if (pathname.startsWith("/portfolio")) return "#portfolio";
+  if (pathname.startsWith("/services")) return "#services";
+  return null;
+}
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("#hero");
   const pathname = usePathname();
   const isHomePage = pathname === "/";
+  const [activeSection, setActiveSection] = useState("#hero");
+  const detailActive = getActiveSectionForPath(pathname);
+  const effectiveActive = detailActive ?? activeSection;
 
   const toggle = useCallback(() => {
     setIsOpen((prev) => !prev);
   }, []);
 
   useEffect(() => {
+    // En páginas de detalle (portfolio/services) el activo viene de getActiveSectionForPath,
+    // no se necesita scrollspy.
+    if (detailActive) {
+      return;
+    }
+
+    // Solo activar scrollspy en la página principal, donde existen las secciones #hero, #about, etc.
+    if (!isHomePage) {
+      return;
+    }
+
     const handleScroll = () => {
       const sections = navItems.map((item) => ({
         id: item.href,
@@ -37,8 +56,9 @@ export default function Header() {
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname, isHomePage, detailActive]);
 
   const handleNavClick = useCallback(() => {
     if (isOpen) setIsOpen(false);
@@ -74,7 +94,7 @@ export default function Header() {
             <NavItemMolecule
               key={item.href}
               item={item}
-              isActive={activeSection === item.href}
+              isActive={effectiveActive === item.href}
               onClick={handleNavClick}
               isHomePage={isHomePage}
             />

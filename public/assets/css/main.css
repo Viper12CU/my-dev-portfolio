@@ -222,13 +222,23 @@ h6 {
 .navmenu {
   padding: 0;
   z-index: 9997;
+  interpolate-size: allow-keywords;
 }
 
 .navmenu ul {
   list-style: none;
   padding: 0 0 20px 0;
   margin: 0;
-  width: 140px;
+  width: fit-content;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.navmenu li {
+  width: fit-content;
+  max-width: 100%;
 }
 
 .navmenu a,
@@ -243,9 +253,12 @@ h6 {
   border-radius: 50px;
   background: color-mix(in srgb, var(--default-color), transparent 92%);
   height: 56px;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   overflow: hidden;
-  transition: 0.3s;
+  transition: max-width 0.3s ease, width 0.3s ease, background 0.3s, color 0.3s;
+  white-space: nowrap;
+  interpolate-size: allow-keywords;
 }
 
 .navmenu a svg,
@@ -257,6 +270,7 @@ h6 {
 .navmenu a span,
 .navmenu a:focus span {
   padding: 0 5px 0 7px;
+  white-space: nowrap;
 }
 
 @media (min-width: 992px) {
@@ -282,8 +296,16 @@ h6 {
 
 .navmenu a:hover,
 .navmenu li:hover>a {
-  max-width: 100%;
+  max-width: 280px;
+  width: max-content;
   color: var(--contrast-color);
+}
+
+@supports (interpolate-size: allow-keywords) {
+  .navmenu a:hover,
+  .navmenu li:hover>a {
+    max-width: max-content;
+  }
 }
 
 .navmenu a:hover span,
@@ -1194,43 +1216,125 @@ section,
 
 .contact .php-email-form {
   height: 100%;
+  background: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact .php-email-form::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  opacity: 0.9;
+}
+
+.contact .php-email-form:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .contact .php-email-form input[type=text],
 .contact .php-email-form input[type=email],
+.contact .php-email-form input[type=tel],
 .contact .php-email-form textarea {
   font-size: 14px;
-  padding: 10px 15px;
+  padding: 13px 16px;
   box-shadow: none;
-  border-radius: 0;
+  border-radius: 10px;
   color: var(--default-color);
-  background-color: color-mix(in srgb, var(--background-color), transparent 50%);
-  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+  background-color: #ffffff;
+  border: 1.5px solid color-mix(in srgb, var(--default-color), transparent 88%);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.contact .php-email-form input[type=text]:hover,
+.contact .php-email-form input[type=email]:hover,
+.contact .php-email-form input[type=tel]:hover,
+.contact .php-email-form textarea:hover {
+  border-color: color-mix(in srgb, var(--default-color), transparent 70%);
+  background-color: #ffffff;
 }
 
 .contact .php-email-form input[type=text]:focus,
 .contact .php-email-form input[type=email]:focus,
+.contact .php-email-form input[type=tel]:focus,
 .contact .php-email-form textarea:focus {
   border-color: var(--accent-color);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-color), transparent 88%);
+  outline: none;
 }
 
 .contact .php-email-form input[type=text]::placeholder,
 .contact .php-email-form input[type=email]::placeholder,
+.contact .php-email-form input[type=tel]::placeholder,
 .contact .php-email-form textarea::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 70%);
+  color: color-mix(in srgb, var(--default-color), transparent 60%);
+  font-weight: 400;
+}
+
+.contact .php-email-form textarea {
+  resize: vertical;
+  min-height: 140px;
+  line-height: 1.6;
+}
+
+.contact .php-email-form .form-control.is-invalid {
+  border-color: #df1529 !important;
+  background-color: color-mix(in srgb, #df1529, transparent 96%);
+}
+
+.contact .php-email-form .form-control.is-invalid:focus {
+  box-shadow: 0 0 0 4px color-mix(in srgb, #df1529, transparent 88%);
 }
 
 .contact .php-email-form button[type=submit] {
   color: var(--contrast-color);
   background: var(--accent-color);
   border: 0;
-  padding: 10px 30px;
-  transition: 0.4s;
+  padding: 12px 34px;
+  transition: all 0.3s ease;
   border-radius: 50px;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--accent-color), transparent 60%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .contact .php-email-form button[type=submit]:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 25%);
+  background: color-mix(in srgb, var(--accent-color), transparent 12%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--accent-color), transparent 50%);
+}
+
+.contact .php-email-form button[type=submit] svg {
+  transition: transform 0.3s ease;
+}
+
+.contact .php-email-form button[type=submit]:hover svg {
+  transform: translateX(3px);
+}
+
+.contact .php-email-form button[type=submit]:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .contact .php-email-form {
+    padding: 24px 20px;
+    border-radius: 14px;
+  }
 }
 
 /*--------------------------------------------------------------

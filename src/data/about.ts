@@ -17,7 +17,7 @@ export const aboutData: AboutData = {
   title: "About",
   subtitle:
     "I am a full-stack developer interested in building clear, solid, and maintainable products. I enjoy bringing design and technology together to create experiences that work well, feel great, and have purpose. I like turning complexity into something simple without losing impact or quality.",
-  imageUrl: "/assets/img/profile-img.jpg",
+  imageUrl: "/assets/img/profile-img.webp",
   role: "Full Stack Developer",
   bio1:
     "I specialize in developing complete web applications, from the initial idea to implementation. I combine frontend, backend, and architecture to create products that are fast, scalable, and easy to maintain.",

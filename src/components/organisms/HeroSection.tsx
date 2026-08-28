@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { heroData } from "@/data/hero";
 import SocialLink from "@/components/atoms/SocialLink";
 import { FlipWords } from "../ui/flip-words";
@@ -27,7 +28,14 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="hero section light-background">
-      <img src="/assets/img/hero-bg.jpg" alt="" />
+      <Image
+        src="/assets/img/hero-bg.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        style={{ objectFit: "cover" }}
+      />
 
       <div className="container" data-aos="zoom-out">
         <div className="row justify-content-center">

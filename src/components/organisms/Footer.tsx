@@ -19,7 +19,7 @@ export default function Footer() {
             download="CV_Fabian_Lemus.pdf"
           >
             <Download size={20} />
-            <span>Descargar CV</span>
+            <span>Download CV</span>
           </a>
         </div>
         <div className="container">
