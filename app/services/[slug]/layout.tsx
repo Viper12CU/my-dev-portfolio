@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowRightCircle, Headphones, Mail } from "lucide-react";
 import { servicesData, getServiceBySlug } from "@/data/services";
 import Header from "@/components/organisms/Header";
 import Footer from "@/components/organisms/Footer";
@@ -46,7 +47,7 @@ export default async function ServiceLayout({ children, params }: LayoutProps) {
                         href={`/services/${s.slug}`}
                         className={s.slug === slug ? "active" : ""}
                       >
-                        <i className="bi bi-arrow-right-circle"></i>
+                        <ArrowRightCircle size={18} />
                         <span>{s.title}</span>
                       </Link>
                     ))}
@@ -54,10 +55,10 @@ export default async function ServiceLayout({ children, params }: LayoutProps) {
                 </div>
 
                 <div className="help-box d-flex flex-column justify-content-center align-items-center">
-                  <i className="bi bi-headset help-icon"></i>
+                  <Headphones className="help-icon" size={32} />
                   <h4>Have a Question?</h4>
                   <p className="d-flex align-items-center mt-2 mb-0">
-                    <i className="bi bi-envelope me-2"></i>
+                    <Mail size={16} className="me-2" />
                     <a href="mailto:fabianalejandrolemus@gmail.com">fabianalejandrolemus@gmail.com</a>
                   </p>
                 </div>

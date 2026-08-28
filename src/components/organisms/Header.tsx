@@ -3,7 +3,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { usePathname } from "next/navigation";
 import { MorphIcon } from "morphicons/react";
-import { Menu, X } from "lucide";
+import { icons } from "lucide";
+import { Download } from "lucide-react";
 import { navItems } from "@/data/navigation";
 import NavItemMolecule from "@/components/molecules/NavItem";
 
@@ -54,11 +55,21 @@ export default function Header() {
         aria-expanded={isOpen}
         aria-label="Toggle navigation"
       >
-        <MorphIcon size={24} icon={isOpen ? X : Menu} />
+        <MorphIcon size={24} icon={isOpen ? icons.X : icons.Menu} />
       </button>
 
       <nav id="navmenu" className="navmenu">
         <ul>
+          <li>
+            <a
+              href="/assets/files/cv_fabian_lemus.pdf"
+              download="CV_Fabian_Lemus.pdf"
+              onClick={handleNavClick}
+            >
+              <Download className="navicon" size={20} />
+              <span>Download CV</span>
+            </a>
+          </li>
           {navItems.map((item) => (
             <NavItemMolecule
               key={item.href}

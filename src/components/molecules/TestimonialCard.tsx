@@ -13,15 +13,15 @@ export default function TestimonialCard({ item }: TestimonialCardProps) {
           <div className="col-lg-6">
             <div className="testimonial-content">
               <p>
-                <Icon name="bi-quote quote-icon-left" />
+                <Icon name="Quote" className="quote-icon-left" />
                 <span>{item.quote}</span>
-                <Icon name="bi-quote quote-icon-right" />
+                <Icon name="Quote" className="quote-icon-right" />
               </p>
               <h3>{item.name}</h3>
               <h4>{item.role}</h4>
               <div className="stars">
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <Icon key={star} name="bi-star-fill" />
+                  <Icon key={star} name="Star" />
                 ))}
               </div>
             </div>

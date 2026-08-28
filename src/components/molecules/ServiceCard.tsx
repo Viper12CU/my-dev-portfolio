@@ -11,6 +11,7 @@ export default function ServiceCard({ item }: ServiceCardProps) {
     <div className={`service-item position-relative ${item.variant}`}>
       <div className="icon">
         <svg
+          className="shape"
           width="100"
           height="100"
           viewBox="0 0 600 600"
@@ -23,7 +24,7 @@ export default function ServiceCard({ item }: ServiceCardProps) {
             d={item.svgPath}
           />
         </svg>
-        <Icon name={item.icon} />
+        <Icon name={item.icon} size={48} />
       </div>
       <Link href={`/services/${item.slug}`} className="stretched-link">
         <h3>{item.title}</h3>

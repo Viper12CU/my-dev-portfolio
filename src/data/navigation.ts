@@ -5,10 +5,10 @@ export interface NavItem {
 }
 
 export const navItems: NavItem[] = [
-  { href: "#hero", icon: "bi-house", label: "Home" },
-  { href: "#about", icon: "bi-person", label: "About" },
-  { href: "#resume", icon: "bi-file-earmark-text", label: "Resume" },
-  { href: "#portfolio", icon: "bi-images", label: "Portfolio" },
-  { href: "#services", icon: "bi-hdd-stack", label: "Services" },
-  { href: "#contact", icon: "bi-envelope", label: "Contact" },
+  { href: "#hero", icon: "Home", label: "Home" },
+  { href: "#about", icon: "User", label: "About" },
+  { href: "#resume", icon: "FileText", label: "Resume" },
+  { href: "#portfolio", icon: "Images", label: "Portfolio" },
+  { href: "#services", icon: "Server", label: "Services" },
+  { href: "#contact", icon: "Mail", label: "Contact" },
 ];

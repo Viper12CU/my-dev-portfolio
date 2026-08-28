@@ -26,7 +26,7 @@ export default function PortfolioCard({ item }: PortfolioCardProps) {
               window.open(item.appUrl, "_blank", "noopener,noreferrer");
             }}
           >
-            <Icon name="bi-box-arrow-up-right" />
+            <Icon name="ExternalLink" />
           </span>
         </div>
       </Link>

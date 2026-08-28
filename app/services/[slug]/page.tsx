@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { CheckCircle, CheckCircle2, Clock, ArrowRight } from "lucide-react";
 import { servicesData, getServiceBySlug } from "@/data/services";
 
 interface PageProps {
@@ -55,7 +56,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       <ul>
         {service.features.map((feature, index) => (
           <li key={index}>
-            <i className="bi bi-check-circle"></i>
+            <CheckCircle size={18} />
             <span>{feature}</span>
           </li>
         ))}
@@ -95,7 +96,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         <ul className="service-deliverables">
           {service.deliverables.map((item, index) => (
             <li key={index}>
-              <i className="bi bi-check2-circle"></i>
+              <CheckCircle2 size={18} />
               <span>{item}</span>
             </li>
           ))}
@@ -105,12 +106,12 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       {/* Duration + CTA */}
       <div className="service-detail-cta" data-aos="fade-up">
         <div className="service-duration">
-          <i className="bi bi-clock-history"></i>
+          <Clock size={18} />
           <span>Typical duration: <strong>{service.duration}</strong></span>
         </div>
         <Link href={service.cta.href} className="btn-get-started">
           {service.cta.text}
-          <i className="bi bi-arrow-right"></i>
+          <ArrowRight size={18} />
         </Link>
       </div>
     </div>
