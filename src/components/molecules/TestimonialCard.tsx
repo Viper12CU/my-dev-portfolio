@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { TestimonialItem } from "@/data/testimonials";
 import Icon from "@/components/atoms/Icon";
 
@@ -27,10 +28,14 @@ export default function TestimonialCard({ item }: TestimonialCardProps) {
             </div>
           </div>
           <div className="col-lg-2 text-center">
-            <img
+            <Image
               src={item.imageUrl}
               className="img-fluid testimonial-img"
               alt={item.name}
+              width={400}
+              height={400}
+              sizes="150px"
+              style={{ height: "auto" }}
             />
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { CheckCircle, CheckCircle2, Clock, ArrowRight } from "lucide-react";
 import { servicesData, getServiceBySlug } from "@/data/services";
 
@@ -41,10 +42,14 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
   return (
     <div className="col-lg-8 ps-lg-5" data-aos="fade-up" data-aos-delay="200">
-      <img
+      <Image
         src={service.detailImage}
         alt={service.title}
         className="img-fluid services-img"
+        width={1024}
+        height={648}
+        sizes="(max-width: 992px) 100vw, 700px"
+        style={{ height: "auto", width: "100%" }}
       />
 
       <h3>{service.title}</h3>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ChevronRight, Download } from "lucide-react";
 import { aboutData } from "@/data/about";
 import SectionTitle from "@/components/atoms/SectionTitle";
@@ -10,10 +11,14 @@ export default function AboutSection() {
       <div className="container" data-aos="fade-up" data-aos-delay="100">
         <div className="row gy-4 justify-content-center">
           <div className="col-lg-4">
-            <img
+            <Image
               src={aboutData.imageUrl}
               className="img-fluid"
               alt="Fabian Lemus, desarrollador full-stack"
+              width={600}
+              height={600}
+              sizes="(max-width: 992px) 100vw, 400px"
+              style={{ height: "auto" }}
             />
           </div>
           <div className="col-lg-8 content">
