@@ -179,7 +179,8 @@ h6 {
   left: 0;
 }
 
-.header .header-toggle {
+.header .header-toggle,
+.header-toggle {
   color: var(--contrast-color);
   background-color: var(--accent-color);
   font-size: 22px;
@@ -201,7 +202,8 @@ h6 {
   padding: 0;
 }
 
-.header .header-toggle svg {
+.header .header-toggle svg,
+.header-toggle svg {
   display: block;
   flex: 0 0 24px;
   width: 24px;
@@ -211,7 +213,8 @@ h6 {
   margin: auto;
 }
 
-.header .header-toggle:hover {
+.header .header-toggle:hover,
+.header-toggle:hover {
   color: var(--contrast-color);
   background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
 }
@@ -284,6 +287,25 @@ h6 {
   .navmenu a:focus span {
     display: none;
   }
+
+  .navmenu a:hover,
+  .navmenu li:hover>a {
+    max-width: 280px;
+    width: max-content;
+    color: var(--contrast-color);
+  }
+
+  @supports (interpolate-size: allow-keywords) {
+    .navmenu a:hover,
+    .navmenu li:hover>a {
+      max-width: max-content;
+    }
+  }
+
+  .navmenu a:hover span,
+  .navmenu li:hover>a span {
+    display: block;
+  }
 }
 
 .navmenu a:hover,
@@ -294,23 +316,22 @@ h6 {
   background: var(--nav-hover-color);
 }
 
-.navmenu a:hover,
-.navmenu li:hover>a {
-  max-width: 280px;
-  width: max-content;
-  color: var(--contrast-color);
-}
-
-@supports (interpolate-size: allow-keywords) {
-  .navmenu a:hover,
-  .navmenu li:hover>a {
-    max-width: max-content;
+@media (max-width: 991px) {
+  .navmenu ul {
+    width: 70%;
   }
-}
 
-.navmenu a:hover span,
-.navmenu li:hover>a span {
-  display: block;
+  .navmenu li {
+    width: 100%;
+  }
+
+  .navmenu a,
+  .navmenu a:focus {
+    width: 100%;
+    max-width: none;
+    /* solo transición de color/fondo, no de tamaño */
+    transition: background 0.3s, color 0.3s;
+  }
 }
 
 /*--------------------------------------------------------------
