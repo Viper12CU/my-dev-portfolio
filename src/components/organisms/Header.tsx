@@ -26,6 +26,44 @@ export default function Header() {
     setIsOpen((prev) => !prev);
   }, []);
 
+  const close = useCallback(() => {
+    setIsOpen(false);
+  }, []);
+
+  // Cerrar con ESC y bloquear scroll del body cuando menú móvil está abierto
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+    };
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, close]);
+
+  // Cerrar al cambiar de ruta (ej. router.push desde NavItem en páginas de detalle)
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    close();
+    // Solo ejecutar al cambiar pathname, no en montaje inicial si ya está cerrado
+  }, [pathname]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Cerrar automáticamente si se pasa a desktop (xl)
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1200px)");
+    const handler = () => {
+      if (mq.matches) close();
+    };
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, [close]);
+
   useEffect(() => {
     // En páginas de detalle (portfolio/services) el activo viene de getActiveSectionForPath,
     // no se necesita scrollspy.
@@ -65,42 +103,62 @@ export default function Header() {
   }, [isOpen]);
 
   return (
-    <header
-      id="header"
-      className={`header d-flex flex-column justify-content-center ${isOpen ? "header-show" : ""}`}
-    >
+    <>
+      {/* Botón fuera del header: evita quedar oculto por left:-100% en móvil y garantiza click en viewport */}
       <button
+        type="button"
         className="header-toggle d-xl-none"
         onClick={toggle}
         aria-expanded={isOpen}
+        aria-controls="header"
         aria-label="Toggle navigation"
       >
         <MorphIcon size={24} icon={isOpen ? icons.X : icons.Menu} />
       </button>
 
-      <nav id="navmenu" className="navmenu">
-        <ul>
-          <li>
-            <a
-              href="/assets/files/cv_fabian_lemus.pdf"
-              download="CV_Fabian_Lemus.pdf"
-              onClick={handleNavClick}
-            >
-              <Download className="navicon" size={20} />
-              <span>Download CV</span>
-            </a>
-          </li>
-          {navItems.map((item) => (
-            <NavItemMolecule
-              key={item.href}
-              item={item}
-              isActive={effectiveActive === item.href}
-              onClick={handleNavClick}
-              isHomePage={isHomePage}
-            />
-          ))}
-        </ul>
-      </nav>
-    </header>
+      {/* Overlay para cerrar al tocar fuera en móvil */}
+      {isOpen && (
+        <div
+          className="d-xl-none"
+          onClick={close}
+          aria-hidden="true"
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(0,0,0,0.35)",
+            zIndex: 996,
+          }}
+        />
+      )}
+
+      <header
+        id="header"
+        className={`header d-flex flex-column justify-content-center ${isOpen ? "header-show" : ""}`}
+      >
+        <nav id="navmenu" className="navmenu">
+          <ul>
+            <li>
+              <a
+                href="/assets/files/cv_fabian_lemus.pdf"
+                download="CV_Fabian_Lemus.pdf"
+                onClick={handleNavClick}
+              >
+                <Download className="navicon" size={20} />
+                <span>Download CV</span>
+              </a>
+            </li>
+            {navItems.map((item) => (
+              <NavItemMolecule
+                key={item.href}
+                item={item}
+                isActive={effectiveActive === item.href}
+                onClick={handleNavClick}
+                isHomePage={isHomePage}
+              />
+            ))}
+          </ul>
+        </nav>
+      </header>
+    </>
   );
 }
