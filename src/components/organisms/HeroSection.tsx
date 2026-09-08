@@ -29,8 +29,8 @@ export default function HeroSection() {
   return (
     <section id="hero" className="hero section light-background">
       <Image
-        src="/assets/img/hero-bg.jpg"
-        alt=""
+        src="/assets/img/hero-bg-3.jpeg"
+        alt="background hero"
         fill
         priority
         sizes="100vw"
