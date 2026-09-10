@@ -1,5 +1,7 @@
+import { footerData } from "@/data/footer";
 import { Download } from "lucide-react";
 import { useTranslations } from "next-intl";
+import SocialLink from "../atoms/SocialLink";
 
 export default function Footer() {
   const t = useTranslations("Footer");
@@ -11,15 +13,9 @@ export default function Footer() {
         <h3 className="sitename">{t("name")}</h3>
         <p>{t("description")}</p>
         <div className="social-links d-flex justify-content-center">
-          <a href="https://linkedin.com/in/fabian-alejandro-lemus-865a643b1" target="_blank" rel="noopener noreferrer" aria-label="Linkedin">
-            <i className="bi bi-linkedin"></i>
-          </a>
-          <a href="https://github.com/Viper12CU" target="_blank" rel="noopener noreferrer" aria-label="Github">
-            <i className="bi bi-github"></i>
-          </a>
-          <a href="https://t.me/@Alex_fer4" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-            <i className="bi bi-telegram"></i>
-          </a>
+         {footerData.socialLinks.map((link, i) => (
+            <SocialLink  key={i} icon={link.icon} href={link.href} label={`Visitar ${link.icon}`} />
+          ))}
         </div>
         <div className="footer-cv">
           <a

@@ -8,7 +8,7 @@ import { Download } from "lucide-react";
 import { navItems } from "@/data/navigation";
 import NavItemMolecule from "@/components/molecules/NavItem";
 import LanguageSwitcher from "@/components/molecules/LanguageSwitcher";
-import { usePathname} from "@/i18n/navigation";
+import { usePathname } from "@/i18n/navigation";
 
 function getActiveSectionForPath(pathname: string): string | null {
   if (pathname.startsWith("/portfolio")) return "#portfolio";
@@ -28,7 +28,15 @@ export default function Header() {
   const navT = useTranslations("Nav");
   const navItemsTranslated = navItems.map((i) => ({
     ...i,
-    label: navT(i.label.toLowerCase() as "home" | "about" | "resume" | "portfolio" | "services" | "contact"),
+    label: navT(
+      i.label.toLowerCase() as
+        | "home"
+        | "about"
+        | "resume"
+        | "portfolio"
+        | "services"
+        | "contact",
+    ),
   }));
 
   const toggle = useCallback(() => {
@@ -46,7 +54,7 @@ export default function Header() {
         const nav = document.getElementById("navmenu");
         if (!nav) return;
         const focusable = nav.querySelectorAll<HTMLElement>(
-          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
         );
         if (focusable.length === 0) return;
         const first = focusable[0];
@@ -65,7 +73,7 @@ export default function Header() {
       window.addEventListener("keydown", handleKeyDown);
       const nav = document.getElementById("navmenu");
       if (nav) {
-        const firstLink = nav.querySelector<HTMLElement>('a[href], button');
+        const firstLink = nav.querySelector<HTMLElement>("a[href], button");
         firstLink?.focus();
       }
     } else {
@@ -158,6 +166,7 @@ export default function Header() {
       >
         <nav id="navmenu" className="navmenu" aria-label={commonT("toggleNav")}>
           <ul>
+            <LanguageSwitcher />
             <li>
               <a
                 href="/assets/files/cv_fabian_lemus.pdf"
@@ -177,7 +186,6 @@ export default function Header() {
                 isHomePage={isHomePage}
               />
             ))}
-            <LanguageSwitcher />
           </ul>
         </nav>
       </header>

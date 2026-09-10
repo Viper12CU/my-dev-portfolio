@@ -8,11 +8,13 @@
     "contact": "Contacto"
   },
   "Hero": {
+    "intro": "Soy",
     "typed": ["Desarrollador", "Freelancer", "Diseñador"]
   },
   "About": {
     "title": "Sobre mí",
     "subtitle": "Soy desarrollador full-stack interesado en construir productos claros, sólidos y mantenibles. Disponer diseño y tecnología para crear experiencias que funcionan, se sienten bien y tienen propósito. Me gusta convertir la complejidad en algo simple sin perder impacto ni calidad.",
+    "imageUrl": "/assets/img/profile-img.webp",
     "role": "Desarrollador Full Stack",
     "bio1": "Me especializo en el desarrollo de aplicaciones web completas, desde la idea inicial hasta la implementación. Combino frontend, backend y arquitectura para crear productos rápidos, escalables y fáciles de mantener.",
     "bio2": "En cada proyecto busco entender el problema real, no solo los requisitos. Analizo el contexto, propongo soluciones prácticas y cimientos técnicos para que crezca sin fricción. Me importa tanto el resultado visible como lo que sucede detrás: arquitectura, rendimiento y buenas prácticas.",
@@ -506,10 +508,10 @@
   },
   "Contact": {
     "title": "Contacto",
-    "subtitle": "¿Tienes un proyecto o idea? Escríbeme y conversemos.",
+    "subtitle": "¿Tienes un proyecto? Hablemos sobre cómo convertir tu idea en un producto claro, sólido y mantenible.",
     "info": [
-      { "icon": "MapPin", "label": "Dirección", "value": "La Habana, Cuba" },
-      { "icon": "Mail", "label": "Email", "value": "fabianalejandrolemus@gmail.com" }
+      { "icon": "Mail", "label": "Email", "value": "fabianalejandrolemus@gmail.com" },
+      { "icon": "Phone", "label": "Teléfono", "value": "+53 58816764" }
     ],
     "form": {
       "nameLabel": "Nombre *",
@@ -544,7 +546,7 @@
   },
   "Footer": {
     "name": "Fabian Lemus",
-    "description": "Desarrollador Full Stack",
+    "description": "Soy desarrollador full-stack interesado en construir productos claros, sólidos y mantenibles. Disfruto unir diseño y tecnología para crear experiencias que funcionan bien, se sienten bien y tienen propósito. Me gusta convertir la complejidad en algo simple sin perder impacto ni calidad.",
     "copyright": "Copyright",
     "allRights": "Todos los derechos reservados",
     "templateNote": "Plantilla y código en mi GitHub.",
@@ -552,8 +554,51 @@
     "downloadCv": "Descargar CV",
     "visitIcon": "Visitar"
   },
+  "Stats": {
+    "items": [
+      { "icon": "Smile", "end": 232, "label": "Clientes satisfechos" },
+      { "icon": "BookOpen", "end": 521, "label": "Proyectos" },
+      { "icon": "Headphones", "end": 1463, "label": "Horas de soporte" },
+      { "icon": "Users", "end": 15, "label": "Profesionales" }
+    ]
+  },
+  "Testimonials": {
+    "title": "Testimonios",
+    "subtitle": "La confianza se construye con trabajo claro, comunicación constante y resultados que hablan por sí mismos.",
+    "items": [
+      {
+        "id": 1,
+        "name": "Saul Goodman",
+        "role": "Director ejecutivo y fundador",
+        "quote": "Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.",
+        "imageUrl": "/assets/img/testimonials/testimonials-1.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Sara Wilsson",
+        "role": "Diseñadora",
+        "quote": "Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram.",
+        "imageUrl": "/assets/img/testimonials/testimonials-2.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Jena Karlis",
+        "role": "Propietaria de tienda",
+        "quote": "Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore.",
+        "imageUrl": "/assets/img/testimonials/testimonials-3.jpg"
+      },
+      {
+        "id": 4,
+        "name": "John Larson",
+        "role": "Emprendedor",
+        "quote": "Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam.",
+        "imageUrl": "/assets/img/testimonials/testimonials-4.jpg"
+      }
+    ]
+  },
   "Common": {
     "downloadCv": "Descargar CV",
+    "language": "Idioma",
     "skip": "Saltar al contenido principal",
     "toggleNav": "Alternar navegación",
     "visit": "Visitar"

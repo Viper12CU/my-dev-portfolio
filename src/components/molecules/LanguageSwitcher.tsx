@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Globe, ChevronDown } from "lucide-react";
+import { Languages, ChevronDown } from "lucide-react";
 import { usePathname, useRouter } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 const languages = [
   { code: "es", label: "Español" },
@@ -14,6 +15,7 @@ export default function LanguageSwitcher() {
   const rootRef = useRef<HTMLLIElement>(null);
   const pathname = usePathname();
   const router = useRouter();
+  const commonT = useTranslations("Common");
 
   useEffect(() => {
     if (!open) return;
@@ -42,8 +44,8 @@ export default function LanguageSwitcher() {
         aria-expanded={open}
         onClick={() => setOpen((prev) => !prev)}
       >
-        <Globe className="navicon" size={20} aria-hidden="true" />
-        <span>Idioma</span>
+        <Languages className="navicon" size={20} aria-hidden="true" />
+        <span>{commonT("language")}</span>
         <ChevronDown
           size={16}
           aria-hidden="true"

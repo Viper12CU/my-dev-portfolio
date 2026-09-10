@@ -8,11 +8,13 @@
     "contact": "Contact"
   },
   "Hero": {
+    "intro": "I’m",
     "typed": ["Developer", "Freelancer", "Designer"]
   },
   "About": {
     "title": "About",
     "subtitle": "I am a full-stack developer interested in building clear, solid, and maintainable products. I enjoy bringing design and technology together to create experiences that work well, feel great, and have purpose. I like turning complexity into something simple without losing impact or quality.",
+    "imageUrl": "/assets/img/profile-img.webp",
     "role": "Full Stack Developer",
     "bio1": "I specialize in developing complete web applications, from the initial idea to implementation. I combine frontend, backend, and architecture to create products that are fast, scalable, and easy to maintain.",
     "bio2": "In every project, I aim to understand the real problem, not just the requirements. I analyze the context, propose practical solutions, and lay the technical foundation for growth without friction. I care as much about the visible result as I do about what happens behind the scenes: architecture, performance, and best practices.",
@@ -506,10 +508,10 @@
   },
   "Contact": {
     "title": "Contact",
-    "subtitle": "Have a project or idea? Write to me and let's talk.",
+    "subtitle": "Do you have a project? Let’s talk about turning your idea into a clear, solid, and maintainable product.",
     "info": [
-      { "icon": "MapPin", "label": "Address", "value": "Havana, Cuba" },
-      { "icon": "Mail", "label": "Email", "value": "fabianalejandrolemus@gmail.com" }
+      { "icon": "Mail", "label": "Email", "value": "fabianalejandrolemus@gmail.com" },
+      { "icon": "Phone", "label": "Phone", "value": "+53 58816764" }
     ],
     "form": {
       "nameLabel": "Name *",
@@ -544,7 +546,7 @@
   },
   "Footer": {
     "name": "Fabian Lemus",
-    "description": "Full Stack Developer",
+    "description": "I am a full-stack developer interested in building clear, solid, and maintainable products. I enjoy bringing design and technology together to create experiences that work well, feel great, and have purpose. I like turning complexity into something simple without losing impact or quality.",
     "copyright": "Copyright",
     "allRights": "All Rights Reserved",
     "templateNote": "Template and code on my GitHub.",
@@ -552,8 +554,51 @@
     "downloadCv": "Download CV",
     "visitIcon": "Visit"
   },
+  "Stats": {
+    "items": [
+      { "icon": "Smile", "end": 232, "label": "Happy Clients" },
+      { "icon": "BookOpen", "end": 521, "label": "Projects" },
+      { "icon": "Headphones", "end": 1463, "label": "Hours Of Support" },
+      { "icon": "Users", "end": 15, "label": "Hard Workers" }
+    ]
+  },
+  "Testimonials": {
+    "title": "Testimonials",
+    "subtitle": "Trust is built through clear work, consistent communication, and results that speak for themselves.",
+    "items": [
+      {
+        "id": 1,
+        "name": "Saul Goodman",
+        "role": "CEO & Founder",
+        "quote": "Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.",
+        "imageUrl": "/assets/img/testimonials/testimonials-1.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Sara Wilsson",
+        "role": "Designer",
+        "quote": "Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram.",
+        "imageUrl": "/assets/img/testimonials/testimonials-2.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Jena Karlis",
+        "role": "Store Owner",
+        "quote": "Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore.",
+        "imageUrl": "/assets/img/testimonials/testimonials-3.jpg"
+      },
+      {
+        "id": 4,
+        "name": "John Larson",
+        "role": "Entrepreneur",
+        "quote": "Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam.",
+        "imageUrl": "/assets/img/testimonials/testimonials-4.jpg"
+      }
+    ]
+  },
   "Common": {
     "downloadCv": "Download CV",
+    "language": "Language",
     "skip": "Skip to main content",
     "toggleNav": "Toggle navigation",
     "visit": "Visit"

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import SocialLink from "@/components/atoms/SocialLink";
 import { FlipWords } from "../ui/flip-words";
+import { heroData } from "@/data/hero";
 
 export default function HeroSection() {
   const typedRef = useRef<HTMLSpanElement>(null);
@@ -13,12 +14,12 @@ export default function HeroSection() {
   const heroName = "Fabian Lemus";
 
   useEffect(() => {
-  let typedInstance: { destroy: () => void } | null = null;
+    let typedInstance: { destroy: () => void } | null = null;
 
-  const loadTyped = async () => {
-    const Typed = (await import("typed.js")).default;
-    if (typedRef.current) {
-      const instance = new Typed(typedRef.current, {
+    const loadTyped = async () => {
+      const Typed = (await import("typed.js")).default;
+      if (typedRef.current) {
+        const instance = new Typed(typedRef.current, {
           strings: heroTypedItems,
           loop: true,
           typeSpeed: 100,
@@ -56,7 +57,7 @@ export default function HeroSection() {
           <div className="col-lg-9">
             <h2>{heroName}</h2>
             <div className="hero-typed">
-              I&apos;m{" "}
+              {t("intro")} {" "}
               <FlipWords
                 duration={1100}
                 words={heroTypedItems}
@@ -68,9 +69,15 @@ export default function HeroSection() {
               />
             </div>
             <div className="social-links">
-              <SocialLink icon="Linkedin" href="https://linkedin.com/in/fabian-alejandro-lemus-865a643b1" label="Linkedin" />
-              <SocialLink icon="Github" href="https://github.com/Viper12CU" label="Github" />
-              <SocialLink icon="Send" href="https://t.me/@Alex_fer4" label="Telegram" />
+              {heroData.socialLinks.map((link, i) => (
+                <SocialLink
+                  justifyContent="start"
+                  key={i}
+                  icon={link.icon}
+                  href={link.href}
+                  label={`Visitar ${link.icon}`}
+                />
+              ))}
             </div>
           </div>
         </div>
