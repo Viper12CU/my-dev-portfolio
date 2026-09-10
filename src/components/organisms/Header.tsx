@@ -1,12 +1,14 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { usePathname } from "next/navigation";
+import { useState, useEffect, useCallback, useRef } from "react";
+import { useTranslations } from "next-intl";
 import { MorphIcon } from "morphicons/react";
 import { icons } from "lucide";
 import { Download } from "lucide-react";
 import { navItems } from "@/data/navigation";
 import NavItemMolecule from "@/components/molecules/NavItem";
+import LanguageSwitcher from "@/components/molecules/LanguageSwitcher";
+import { usePathname} from "@/i18n/navigation";
 
 function getActiveSectionForPath(pathname: string): string | null {
   if (pathname.startsWith("/portfolio")) return "#portfolio";
@@ -22,6 +24,13 @@ export default function Header() {
   const detailActive = getActiveSectionForPath(pathname);
   const effectiveActive = detailActive ?? activeSection;
 
+  const commonT = useTranslations("Common");
+  const navT = useTranslations("Nav");
+  const navItemsTranslated = navItems.map((i) => ({
+    ...i,
+    label: navT(i.label.toLowerCase() as "home" | "about" | "resume" | "portfolio" | "services" | "contact"),
+  }));
+
   const toggle = useCallback(() => {
     setIsOpen((prev) => !prev);
   }, []);
@@ -30,7 +39,6 @@ export default function Header() {
     setIsOpen(false);
   }, []);
 
-  // Cerrar con ESC y bloquear scroll del body cuando menú móvil está abierto
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") close();
@@ -69,14 +77,15 @@ export default function Header() {
     };
   }, [isOpen, close]);
 
-  // Cerrar al cambiar de ruta (ej. router.push desde NavItem en páginas de detalle)
+  // Cerrar menú al cambiar de ruta (browser back/forward, router.push desde NavItem)
+  const prevPathname = useRef(pathname);
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    close();
-    // Solo ejecutar al cambiar pathname, no en montaje inicial si ya está cerrado
-  }, [pathname]); // eslint-disable-line react-hooks/exhaustive-deps
+    if (prevPathname.current !== pathname) {
+      setIsOpen(false);
+    }
+    prevPathname.current = pathname;
+  }, [pathname]);
 
-  // Cerrar automáticamente si se pasa a desktop (xl)
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 1200px)");
     const handler = () => {
@@ -87,16 +96,8 @@ export default function Header() {
   }, [close]);
 
   useEffect(() => {
-    // En páginas de detalle (portfolio/services) el activo viene de getActiveSectionForPath,
-    // no se necesita scrollspy.
-    if (detailActive) {
-      return;
-    }
-
-    // Solo activar scrollspy en la página principal, donde existen las secciones #hero, #about, etc.
-    if (!isHomePage) {
-      return;
-    }
+    if (detailActive) return;
+    if (!isHomePage) return;
 
     const handleScroll = () => {
       const sections = navItems.map((item) => ({
@@ -126,19 +127,17 @@ export default function Header() {
 
   return (
     <>
-      {/* Botón fuera del header: evita quedar oculto por left:-100% en móvil y garantiza click en viewport */}
       <button
         type="button"
         className="header-toggle d-xl-none"
         onClick={toggle}
         aria-expanded={isOpen}
         aria-controls="header"
-        aria-label="Toggle navigation"
+        aria-label={commonT("toggleNav")}
       >
         <MorphIcon size={24} icon={isOpen ? icons.X : icons.Menu} />
       </button>
 
-      {/* Overlay para cerrar al tocar fuera en móvil */}
       {isOpen && (
         <div
           className="d-xl-none"
@@ -157,7 +156,7 @@ export default function Header() {
         id="header"
         className={`header d-flex flex-column justify-content-center ${isOpen ? "header-show" : ""}`}
       >
-        <nav id="navmenu" className="navmenu" aria-label="Navegación principal">
+        <nav id="navmenu" className="navmenu" aria-label={commonT("toggleNav")}>
           <ul>
             <li>
               <a
@@ -166,10 +165,10 @@ export default function Header() {
                 onClick={handleNavClick}
               >
                 <Download className="navicon" size={20} />
-                <span>Download CV</span>
+                <span>{commonT("downloadCv")}</span>
               </a>
             </li>
-            {navItems.map((item) => (
+            {navItemsTranslated.map((item) => (
               <NavItemMolecule
                 key={item.href}
                 item={item}
@@ -178,6 +177,7 @@ export default function Header() {
                 isHomePage={isHomePage}
               />
             ))}
+            <LanguageSwitcher />
           </ul>
         </nav>
       </header>

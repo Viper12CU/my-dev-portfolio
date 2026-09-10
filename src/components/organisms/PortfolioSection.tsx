@@ -1,14 +1,20 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { portfolioData } from "@/data/portfolio";
+import { useTranslations } from "next-intl";
 import SectionTitle from "@/components/atoms/SectionTitle";
 import PortfolioCard from "@/components/molecules/PortfolioCard";
+import type { PortfolioItem } from "@/data/portfolio";
 
 export default function PortfolioSection() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const t = useTranslations("Portfolio");
+  const filters = t.raw("filters") as { label: string; filter: string }[];
+  const items = t.raw("items") as PortfolioItem[];
 
   useEffect(() => {
+    let isotopeInstance: { destroy: () => void } | null = null;
+
     const loadIsotope = async () => {
       const Isotope = (await import("isotope-layout")).default;
       const imagesLoaded = (await import("imagesloaded")).default;
@@ -20,18 +26,26 @@ export default function PortfolioSection() {
 
         if (isotopeContainer) {
           imagesLoaded(isotopeContainer as HTMLElement, () => {
-            new Isotope(isotopeContainer as HTMLElement, {
+            const instance = new Isotope(isotopeContainer as HTMLElement, {
               itemSelector: ".isotope-item",
               layoutMode: "masonry",
               filter: "*",
               sortBy: "original-order",
             });
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            isotopeInstance = { destroy: () => (instance as any).destroy() };
           });
         }
       }
     };
 
     loadIsotope();
+
+    return () => {
+      if (isotopeInstance) {
+        isotopeInstance.destroy();
+      }
+    };
   }, []);
 
   const handleFilterClick = (e: React.MouseEvent<HTMLLIElement>) => {
@@ -45,8 +59,8 @@ export default function PortfolioSection() {
   return (
     <section id="portfolio" className="portfolio section">
       <SectionTitle
-        title={portfolioData.title}
-        subtitle={portfolioData.subtitle}
+        title={t("title")}
+        subtitle={t("subtitle")}
       />
 
       <div className="container">
@@ -62,9 +76,9 @@ export default function PortfolioSection() {
             data-aos="fade-up"
             data-aos-delay="100"
             role="tablist"
-            aria-label="Filtrar proyectos por categoría"
+            aria-label="Filter projects by category"
           >
-            {portfolioData.filters.map((filter, i) => (
+            {filters.map((filter, i) => (
               <li
                 key={i}
                 data-filter={filter.filter}
@@ -90,7 +104,7 @@ export default function PortfolioSection() {
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            {portfolioData.items.map((item) => (
+            {items.map((item) => (
               <PortfolioCard key={item.id} item={item} />
             ))}
           </div>

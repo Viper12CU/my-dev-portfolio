@@ -6,71 +6,23 @@ import "@blossom-carousel/react/style.css";
 import "../public/assets/css/main.css";
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { getLocale } from "next-intl/server";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: "Fabian Lemus | Full-Stack Developer & Web Applications",
-  description:
-    "Portfolio de Fabian Lemus, desarrollador full-stack especializado en aplicaciones web rápidas, escalables y mantenibles desde La Habana, Cuba.",
-  keywords: [
-    "Fabian Lemus",
-    "desarrollador full-stack",
-    "desarrollador web en Cuba",
-    "aplicaciones web",
-    "Next.js",
-    "React",
-    "TypeScript",
-  ],
-  authors: [{ name: "Fabian Lemus" }],
-  creator: "Fabian Lemus",
-  alternates: { canonical: "/" },
-  openGraph: {
-    type: "profile",
-    locale: "es_ES",
-    url: "/",
-    title: "Fabian Lemus | Full-Stack Developer",
-    description:
-      "Conoce el trabajo y la experiencia de Fabian Lemus, desarrollador full-stack de aplicaciones web.",
-    siteName: "Fabian Lemus",
-    images: [
-      {
-        url: "/assets/img/profile-img.jpg",
-        width: 600,
-        height: 600,
-        alt: "Fabian Lemus, desarrollador full-stack",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Fabian Lemus | Full-Stack Developer",
-    description:
-      "Portfolio profesional de Fabian Lemus, desarrollador full-stack.",
-    images: ["/assets/img/profile-img.jpg"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const locale = await getLocale();
+
   return (
-    <html lang="es" className={cn("font-sans", geist.variable)}>
+    <html lang={locale} className={cn("font-sans", geist.variable)}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -85,9 +37,6 @@ export default function RootLayout({
         />
       </head>
       <body className="index-page">
-        <a href="#main-content" className="skip-link">
-          Saltar al contenido principal
-        </a>
         {children}
       </body>
     </html>

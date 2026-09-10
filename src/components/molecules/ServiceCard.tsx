@@ -1,6 +1,6 @@
-import Link from "next/link";
 import type { ServiceItem } from "@/data/services";
 import Icon from "@/components/atoms/Icon";
+import { Link } from "@/i18n/navigation";
 
 interface ServiceCardProps {
   item: ServiceItem;

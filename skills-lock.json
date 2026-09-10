@@ -16,6 +16,12 @@
       "sourceType": "autoskills-registry",
       "computedHash": "82fb11a63fb1e35ee2469516ed02d54695f783115b1540c0e783197af4240a3a"
     },
+    "i18next-localization": {
+      "source": "i18next/i18next-cli",
+      "sourceType": "github",
+      "skillPath": "skills/i18next-localization/SKILL.md",
+      "computedHash": "e2c677378fda6bbcd0027c406d37b73f46c85f8ad4abe9907cff8d2a890edfc6"
+    },
     "next-best-practices": {
       "source": "vercel-labs/next-skills",
       "sourceType": "autoskills-registry",

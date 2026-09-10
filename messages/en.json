@@ -1,0 +1,581 @@
+{
+  "Nav": {
+    "home": "Home",
+    "about": "About",
+    "resume": "Resume",
+    "portfolio": "Portfolio",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "typed": ["Developer", "Freelancer", "Designer"]
+  },
+  "About": {
+    "title": "About",
+    "subtitle": "I am a full-stack developer interested in building clear, solid, and maintainable products. I enjoy bringing design and technology together to create experiences that work well, feel great, and have purpose. I like turning complexity into something simple without losing impact or quality.",
+    "role": "Full Stack Developer",
+    "bio1": "I specialize in developing complete web applications, from the initial idea to implementation. I combine frontend, backend, and architecture to create products that are fast, scalable, and easy to maintain.",
+    "bio2": "In every project, I aim to understand the real problem, not just the requirements. I analyze the context, propose practical solutions, and lay the technical foundation for growth without friction. I care as much about the visible result as I do about what happens behind the scenes: architecture, performance, and best practices.",
+    "details": {
+      "left": [
+        { "label": "Location", "value": "Havana, Cuba" },
+        { "label": "Specialty", "value": "Full Stack Development" },
+        { "label": "Focus", "value": "Web Applications" },
+        { "label": "Work Mode", "value": "Remote" }
+      ],
+      "right": [
+        { "label": "Education", "value": "Systems Engineering" },
+        { "label": "Email", "value": "fabianalejandrolemus@gmail.com" },
+        { "label": "Availability", "value": "Open to opportunities" },
+        { "label": "Approach", "value": "Clean & Maintainable Code" }
+      ]
+    }
+  },
+  "Skills": {
+    "title": "Skills",
+    "subtitle": "A practical toolkit for building reliable, scalable, and user-centered digital products.",
+    "left": [
+      { "name": "Frontend & UX", "percentage": 100 },
+      { "name": "Backend & APIs", "percentage": 90 },
+      { "name": "Databases & SQL", "percentage": 75 },
+      { "name": "UI Design", "percentage": 70 },
+      { "name": "Flutter & Dart", "percentage": 80 }
+    ],
+    "right": [
+      { "name": "AI Tools", "percentage": 80 },
+      { "name": "Git & Collaboration", "percentage": 84 },
+      { "name": "WordPress/CMS", "percentage": 90 },
+      { "name": "Quality & Testing", "percentage": 75 },
+      { "name": "Mobile UI Development", "percentage": 75 }
+    ]
+  },
+  "Resume": {
+    "title": "Resume",
+    "subtitle": "A concise overview of my education, experience, and the path that has shaped my work as a full-stack developer.",
+    "summary": {
+      "title": "Fabian Lemus",
+      "description": "Full-stack developer and systems engineer focused on building reliable web applications from idea to implementation. I combine frontend, backend, databases, and practical architecture to create clear, scalable, and maintainable digital products.",
+      "bullets": [
+        "Systems Engineer",
+        "Frontend & Backend Development",
+        "Open to Opportunities"
+      ]
+    },
+    "education": {
+      "title": "Education",
+      "items": [
+        {
+          "title": "Systems Engineering",
+          "period": "Sep 2022 - Jul 2024",
+          "institution": "Universidad Máximo Gómez Báez de Ciego de Ávila, Cuba",
+          "institutionUrl": "https://www.unica.cu/",
+          "description": "Built a strong foundation in software development, systems analysis, databases, and information technology. Developed the ability to understand complex problems, design practical solutions, and apply structured engineering principles to real-world projects."
+        },
+        {
+          "title": "CS50's Web Programming with Python and JavaScript",
+          "institution": "Harvard University (edX)",
+          "institutionUrl": "https://cs50.harvard.edu/web/2020/",
+          "description": "An intensive course covering web development with Python and JavaScript, focusing on building dynamic web applications."
+        },
+        {
+          "title": "B1 English for Developers Certification",
+          "institution": "freeCodeCamp.org",
+          "institutionUrl": "https://www.freecodecamp.org/learn/b1-english-for-developers",
+          "description": "A certification demonstrating proficiency in English for developers, covering technical vocabulary, reading comprehension, and communication skills in a professional context."
+        }
+      ]
+    },
+    "experience": {
+      "title": "Professional Experience",
+      "items": [
+        {
+          "title": "Full Stack Developer",
+          "period": "Dec 2024 - Jan 2026",
+          "institution": "Bioplantas Center for Plant Biotechnology",
+          "institutionUrl": "https://www.bioplantas.cu/",
+          "bullets": [
+            "Developed and maintained web applications using React, Node.js, and PostgreSQL, ensuring high performance and responsiveness.",
+            "Collaborated with cross-functional teams to define, design, and ship new features, improving user experience and functionality.",
+            "Implemented RESTful APIs and integrated third-party services to enhance application capabilities.",
+            "Optimized applications for maximum speed and scalability, resulting in a 30% improvement in load times."
+          ]
+        }
+      ]
+    }
+  },
+  "Portfolio": {
+    "title": "Portfolio",
+    "subtitle": "A showcase of my work, demonstrating my skills and expertise in creating innovative and effective solutions for various projects.",
+    "filters": [
+      { "label": "All", "filter": "*" },
+      { "label": "Web App", "filter": ".filter-app" },
+      { "label": "Mobile App", "filter": ".filter-product" }
+    ],
+    "items": [
+      {
+        "id": 1,
+        "title": "E-Commerce Platform",
+        "description": "Complete e-commerce platform with administration panel",
+        "category": "filter-app",
+        "imageUrl": "/assets/img/masonry-portfolio/masonry-portfolio-1.jpg",
+        "githubUrl": "https://github.com/username/ecommerce-platform",
+        "appUrl": "https://ecommerce-demo.vercel.app",
+        "client": "TechStore Inc.",
+        "projectDate": "January 2024",
+        "technologies": ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Tailwind CSS"],
+        "detailImages": ["/assets/img/masonry-portfolio/masonry-portfolio-1.jpg", "/assets/img/masonry-portfolio/masonry-portfolio-2.jpg", "/assets/img/masonry-portfolio/masonry-portfolio-3.jpg", "/assets/img/portfolio/app-1.jpg"],
+        "detailsDescription": [
+          "Complete e-commerce platform designed for a technology store. Includes product catalog, shopping cart, Stripe payment system, and administration panel for managing inventory and orders.",
+          "The system was built with Next.js 14 and TypeScript to ensure performance and type-safety. SSR was implemented to improve SEO and initial page loading.",
+          "The administration panel allows sellers to manage products, view real-time sales statistics, and process orders. PostgreSQL was used for the database with Prisma as ORM."
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Task Management App",
+        "description": "Task management application with real-time collaboration",
+        "category": "filter-product",
+        "imageUrl": "/assets/img/masonry-portfolio/masonry-portfolio-2.jpg",
+        "githubUrl": "https://github.com/username/task-manager",
+        "appUrl": "https://taskflow-demo.vercel.app",
+        "client": "StartupXYZ",
+        "projectDate": "March 2024",
+        "technologies": ["React", "Node.js", "Socket.io", "MongoDB", "Redis"],
+        "detailImages": ["/assets/img/masonry-portfolio/masonry-portfolio-2.jpg", "/assets/img/masonry-portfolio/masonry-portfolio-4.jpg", "/assets/img/masonry-portfolio/masonry-portfolio-5.jpg", "/assets/img/portfolio/product-1.jpg"],
+        "detailsDescription": [
+          "Task management application designed for remote teams. Allows creating projects, assigning tasks, setting deadlines, and collaborating in real-time with instant updates.",
+          "The backend architecture uses Node.js with Express and Socket.io for real-time communication. Redis was implemented for session caching and message queues.",
+          "The frontend was built with React and Context API for state management. Drag & drop was implemented to reorganize tasks and a real-time notification system."
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Brand Identity System",
+        "description": "Complete visual identity system for technology brand",
+        "category": "filter-branding",
+        "imageUrl": "/assets/img/masonry-portfolio/masonry-portfolio-3.jpg",
+        "githubUrl": "https://github.com/username/brand-identity",
+        "appUrl": "https://brand-showcase.vercel.app",
+        "client": "InnovateTech",
+        "projectDate": "February 2024",
+        "technologies": ["Figma", "Illustrator", "After Effects", "CSS", "SVG"],
+        "detailImages": ["/assets/img/masonry-portfolio/masonry-portfolio-3.jpg", "/assets/img/masonry-portfolio/masonry-portfolio-6.jpg", "/assets/img/masonry-portfolio/masonry-portfolio-7.jpg", "/assets/img/portfolio/branding-1.jpg"],
+        "detailsDescription": [
+          "Development of a complete visual identity system for an emerging technology company. The project included logo, color palette, typography, and brand guidelines.",
+          "More than 50 digital assets were created including icons, illustrations, and social media templates. All pieces were designed in Figma with reusable components.",
+          "The system was documented in an interactive brand book that includes usage examples, technical specifications, and best practices for brand implementation across different media."
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Fitness Tracker",
+        "description": "Mobile app for tracking exercise routines and nutrition",
+        "category": "filter-app",
+        "imageUrl": "/assets/img/masonry-portfolio/masonry-portfolio-4.jpg",
+        "githubUrl": "https://github.com/username/fitness-tracker",
+        "appUrl": "https://fitness-app-demo.vercel.app",
+        "client": "FitLife Co.",
+        "projectDate": "April 2024",
+        "technologies": ["React Native", "Firebase", "Redux", "Chart.js", "Node.js"],
+        "detailImages": ["/assets/img/masonry-portfolio/masonry-portfolio-4.jpg", "/assets/img/masonry-portfolio/masonry-portfolio-5.jpg", "/assets/img/masonry-portfolio/masonry-portfolio-8.jpg", "/assets/img/portfolio/app-1.jpg"],
+        "detailsDescription": [
+          "Cross-platform mobile app for tracking exercise routines and nutrition plans. Users can log workouts, monitor progress, and receive personalized recommendations.",
+          "Built with React Native to reach both iOS and Android with a single codebase. Firebase provides authentication, real-time database, and push notifications.",
+          "The Chart.js charting system shows user progress over time, including weight, body measurements, and performance in specific exercises."
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Analytics Dashboard",
+        "description": "Analytics panel with real-time data visualization",
+        "category": "filter-product",
+        "imageUrl": "/assets/img/masonry-portfolio/masonry-portfolio-5.jpg",
+        "githubUrl": "https://github.com/username/analytics-dashboard",
+        "appUrl": "https://analytics-demo.vercel.app",
+        "client": "DataViz Corp.",
+        "projectDate": "May 2024",
+        "technologies": ["Vue.js", "D3.js", "Python", "FastAPI", "ClickHouse"],
+        "detailImages": ["/assets/img/masonry-portfolio/masonry-portfolio-5.jpg", "/assets/img/masonry-portfolio/masonry-portfolio-6.jpg", "/assets/img/masonry-portfolio/masonry-portfolio-7.jpg", "/assets/img/portfolio/product-1.jpg"],
+        "detailsDescription": [
+          "Enterprise analytics dashboard with real-time data visualization. Allows monitoring KPIs, generating automatic reports, and making data-driven decisions.",
+          "The frontend uses Vue.js with D3.js for custom interactive charts. Communication with the backend is done via WebSockets for real-time updates.",
+          "The backend is built with Python and FastAPI, processing millions of daily events with ClickHouse as an analytical database for high-performance queries."
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Restaurant Branding",
+        "description": "Complete visual identity for gourmet restaurant chain",
+        "category": "filter-branding",
+        "imageUrl": "/assets/img/masonry-portfolio/masonry-portfolio-6.jpg",
+        "githubUrl": "https://github.com/username/restaurant-brand",
+        "appUrl": "https://restaurant-brand.vercel.app",
+        "client": "Gourmet Bites",
+        "projectDate": "June 2024",
+        "technologies": ["Figma", "Photoshop", "InDesign", "Blender", "CSS"],
+        "detailImages": ["/assets/img/masonry-portfolio/masonry-portfolio-6.jpg", "/assets/img/masonry-portfolio/masonry-portfolio-8.jpg", "/assets/img/masonry-portfolio/masonry-portfolio-9.jpg", "/assets/img/portfolio/branding-1.jpg"],
+        "detailsDescription": [
+          "Complete brand identity creation for a gourmet restaurant chain. The project covered everything from concept to implementation across all touchpoints.",
+          "Menus, business cards, signage, packaging, and a website were designed to reflect the restaurant's elegance and quality. Warm colors and sophisticated typography were used.",
+          "The project included 3D renders of interior design and printed material mockups for client presentation. Over 200 production-ready files were delivered."
+        ]
+      },
+      {
+        "id": 7,
+        "title": "Learning Platform",
+        "description": "E-learning platform with course and progress system",
+        "category": "filter-app",
+        "imageUrl": "/assets/img/masonry-portfolio/masonry-portfolio-7.jpg",
+        "githubUrl": "https://github.com/username/learning-platform",
+        "appUrl": "https://learn-demo.vercel.app",
+        "client": "EduTech Academy",
+        "projectDate": "July 2024",
+        "technologies": ["Next.js", "Prisma", "PostgreSQL", "AWS S3", "Stripe"],
+        "detailImages": ["/assets/img/masonry-portfolio/masonry-portfolio-7.jpg", "/assets/img/masonry-portfolio/masonry-portfolio-9.jpg", "/assets/img/masonry-portfolio/masonry-portfolio-1.jpg", "/assets/img/portfolio/app-1.jpg"],
+        "detailsDescription": [
+          "Complete e-learning platform with course system, video lessons, quizzes, and progress tracking. Includes instructor panel and per-course payment system.",
+          "The architecture uses Next.js App Router with Server Components to improve performance. Prisma ORM manages the PostgreSQL database with schemas optimized for complex queries.",
+          "Videos are stored in AWS S3 with adaptive streaming. A digital certificate system was implemented that automatically generates certificates upon course completion."
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Social Media Toolkit",
+        "description": "Toolkit for social media content management",
+        "category": "filter-product",
+        "imageUrl": "/assets/img/masonry-portfolio/masonry-portfolio-8.jpg",
+        "githubUrl": "https://github.com/username/social-toolkit",
+        "appUrl": "https://social-toolkit.vercel.app",
+        "client": "MediaPro Agency",
+        "projectDate": "August 2024",
+        "technologies": ["Svelte", "Supabase", "Tailwind CSS", "Canvas API", "Cron"],
+        "detailImages": ["/assets/img/masonry-portfolio/masonry-portfolio-8.jpg", "/assets/img/masonry-portfolio/masonry-portfolio-2.jpg", "/assets/img/masonry-portfolio/masonry-portfolio-3.jpg", "/assets/img/portfolio/product-1.jpg"],
+        "detailsDescription": [
+          "Comprehensive tool for social media content management. Allows scheduling posts, analyzing metrics, and managing multiple accounts from a single panel.",
+          "Built with Svelte for optimal performance and Supabase as backend-as-a-service. The scheduling system uses cron jobs to automatically publish content.",
+          "An integrated image editor was implemented with Canvas API that allows creating and editing posts directly on the platform without external tools."
+        ]
+      },
+      {
+        "id": 9,
+        "title": "Corporate Website",
+        "description": "Corporate website with content management system",
+        "category": "filter-branding",
+        "imageUrl": "/assets/img/masonry-portfolio/masonry-portfolio-9.jpg",
+        "githubUrl": "https://github.com/username/corporate-site",
+        "appUrl": "https://corporate-demo.vercel.app",
+        "client": "Global Solutions Ltd.",
+        "projectDate": "September 2024",
+        "technologies": ["Next.js", "Sanity CMS", "Tailwind CSS", "Framer Motion", "Vercel"],
+        "detailImages": ["/assets/img/masonry-portfolio/masonry-portfolio-9.jpg", "/assets/img/masonry-portfolio/masonry-portfolio-1.jpg", "/assets/img/masonry-portfolio/masonry-portfolio-4.jpg", "/assets/img/portfolio/branding-1.jpg"],
+        "detailsDescription": [
+          "Modern corporate website with headless CMS to facilitate content updates by the marketing team. Includes services section, case studies, and blog.",
+          "Next.js provides static rendering for content pages and SSR for dynamic content. Sanity CMS allows editing content in real-time with instant preview.",
+          "Smooth animations were implemented with Framer Motion and a responsive design that adapts perfectly to all devices. The site scored 98 on Lighthouse."
+        ]
+      }
+    ]
+  },
+  "Services": {
+    "title": "Services",
+    "subtitle": "I offer a range of services to help you build and enhance your digital presence, from web development to design and optimization.",
+    "list": "Services List",
+    "haveAQuestion": "Have a Question?",
+    "technologies": "Technologies",
+    "howIWork": "How I Work",
+    "whatYouGet": "What You Get",
+    "typicalDuration": "Typical duration:",
+    "items": [
+      {
+        "slug": "full-stack-web-development",
+        "title": "Full-Stack Web Development",
+        "description": "Complete web applications built from frontend to backend, with a clear structure, reliable functionality, and room to grow.",
+        "icon": "Code",
+        "svgPath": "M300,521.0016835830174C376.1290562159157,517.8887921683347,466.0731472004068,529.7835943286574,510.70327084640275,468.03025145048787C554.3714126377745,407.6079735673963,508.03601936045806,328.9844924480964,491.2728898941984,256.3432110539036C474.5976632858925,184.082847569629,479.9380746630129,96.60480741107993,416.23090153303,58.64404602377083C348.86323505073057,18.502131276798302,261.93793281208167,40.57373210992963,193.5410806939664,78.93577620505333C130.42746243093433,114.334589627462,98.30271207620316,179.96522072025542,76.75703585869454,249.04625023123273C51.97151888228291,328.5150500222984,13.704378332031375,421.85034740162234,66.52175969318436,486.19268352777647C119.04800174914682,550.1803526380478,217.28368757567262,524.383925680826,300,521.0016835830174",
+        "variant": "item-cyan",
+        "detailImage": "/assets/img/services.jpg",
+        "features": [
+          "End-to-end application architecture and development",
+          "RESTful and GraphQL API integration",
+          "Authentication, authorization, and security best practices",
+          "CI/CD pipelines and automated deployment",
+          "Performance optimization and scalability planning"
+        ],
+        "longDescription": [
+          "I build complete web applications from the ground up, handling everything from database design and backend logic to responsive frontend interfaces. Each project is structured for maintainability and growth, using modern frameworks and proven architectural patterns.",
+          "Whether you need a new product built from scratch or an existing system improved, I focus on clean code, clear documentation, and reliable functionality that your team can extend over time."
+        ],
+        "technologies": ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS", "Docker", "Vercel"],
+        "process": [
+          { "step": "Discovery", "description": "Understanding your business goals, technical requirements, and user needs to define a clear project scope." },
+          { "step": "Architecture", "description": "Designing the system structure, data models, API contracts, and technology stack selection." },
+          { "step": "Development", "description": "Building the application in iterative sprints with regular demos and feedback cycles." },
+          { "step": "Testing & Launch", "description": "Thorough QA, performance testing, deployment setup, and production monitoring." }
+        ],
+        "deliverables": [
+          "Full source code with documentation",
+          "Deployed application with CI/CD pipeline",
+          "API documentation and database schema",
+          "Admin panel or dashboard (if needed)",
+          "30 days of post-launch support"
+        ],
+        "duration": "4-12 weeks",
+        "cta": { "text": "Start Your Project", "href": "/#contact" }
+      },
+      {
+        "slug": "frontend-ux",
+        "title": "Frontend & UX",
+        "description": "Responsive and intuitive interfaces that combine thoughtful user experiences with clean, maintainable frontend code.",
+        "icon": "Layout",
+        "svgPath": "M300,582.0697525312426C382.5290701553225,586.8405444964366,449.9789794690241,525.3245884688669,502.5850820975895,461.55621195738473C556.606425686781,396.0723002908107,615.8543463187945,314.28637112970534,586.6730223649479,234.56875336149918C558.9533121215079,158.8439757836574,454.9685369536778,164.00468322053177,381.49747125262974,130.76875717737553C312.15926192815925,99.40240125094834,248.97055460311594,18.661163978235184,179.8680185752513,50.54337015887873C110.5421016452524,82.52863877960104,119.82277516462835,180.83849132639028,109.12597500060166,256.43424936330496C100.08760227029461,320.3096726198365,92.17705696193138,384.0621239912766,124.79988738764834,439.7174275375508C164.83382741302287,508.01625554203684,220.96474134820875,577.5009287672846,300,582.0697525312426",
+        "variant": "item-orange",
+        "detailImage": "/assets/img/services.jpg",
+        "features": [
+          "Responsive design for mobile, tablet, and desktop",
+          "Component-based architecture with React/Next.js",
+          "Accessibility-first approach (WCAG 2.2)",
+          "Design system and reusable component libraries",
+          "Animation and micro-interactions with GSAP/Framer Motion"
+        ],
+        "longDescription": [
+          "I create modern, responsive web interfaces that look great and work seamlessly across all devices. Using React, Next.js, and Tailwind CSS, I build component-driven UIs that are fast, accessible, and easy to maintain.",
+          "From landing pages to complex dashboards, I focus on clean visual hierarchy, smooth interactions, and performance that keeps users engaged."
+        ],
+        "technologies": ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "GSAP", "Storybook"],
+        "process": [
+          { "step": "UX Research", "description": "Analyzing user behavior, competitor patterns, and defining the information architecture." },
+          { "step": "Wireframes", "description": "Creating low-fidelity layouts to validate structure and user flows before visual design." },
+          { "step": "UI Design", "description": "Building high-fidelity mockups with a consistent design system and component tokens." },
+          { "step": "Development", "description": "Pixel-perfect implementation with responsive breakpoints, animations, and accessibility." }
+        ],
+        "deliverables": [
+          "Responsive web application",
+          "Design system / component library",
+          "Interactive prototypes",
+          "Accessibility audit report",
+          "Performance benchmarks (Lighthouse scores)"
+        ],
+        "duration": "2-6 weeks",
+        "cta": { "text": "Discuss Your UI", "href": "/#contact" }
+      },
+      {
+        "slug": "backend-api-development",
+        "title": "Backend & API Development",
+        "description": "Well-structured APIs and backend services designed to connect systems, manage data, and support dependable digital products.",
+        "icon": "Network",
+        "svgPath": "M300,541.5067337569781C382.14930387511276,545.0595476570109,479.8736841581634,548.3450877840088,526.4010558755058,480.5488172755941C571.5218469581645,414.80211281144784,517.5187510058486,332.0715597781072,496.52539010469104,255.14436215662573C477.37192572678356,184.95920475031193,473.57363656557914,105.61284051026155,413.0603344069578,65.22779650032875C343.27470386102294,18.654635553484475,251.2091493199835,5.337323636656869,175.0934190732945,40.62881213300186C97.87086631185822,76.43348514350839,51.98124368387456,156.15599469081315,36.44837278890362,239.84606092416172C21.716077023791087,319.22268207091537,43.775223500013084,401.1760424656574,96.891909868211,461.97329694683043C147.22146801428983,519.5804099606455,223.5754009179313,538.201503339737,300,541.5067337569781",
+        "variant": "item-teal",
+        "detailImage": "/assets/img/services.jpg",
+        "features": [
+          "RESTful API design and development",
+          "Node.js, Express, and NestJS backends",
+          "Database design (PostgreSQL, MongoDB, Redis)",
+          "Third-party API integration and webhooks",
+          "Rate limiting, caching, and security hardening"
+        ],
+        "longDescription": [
+          "I design and build robust backend services and APIs that power modern web applications. From simple REST endpoints to complex microservices, I focus on clean architecture, data integrity, and reliable performance under load.",
+          "Whether you need authentication systems, real-time features, or integrations with external services, I build backends that are secure, well-documented, and built to scale."
+        ],
+        "technologies": ["Node.js", "NestJS", "Express", "PostgreSQL", "MongoDB", "Redis", "Docker", "Prisma"],
+        "process": [
+          { "step": "Requirements", "description": "Mapping out data flows, endpoints, authentication needs, and integration points." },
+          { "step": "Data Modeling", "description": "Designing the database schema, relationships, and indexing strategy." },
+          { "step": "API Development", "description": "Building endpoints with validation, error handling, and comprehensive documentation." },
+          { "step": "Hardening", "description": "Security audit, load testing, caching layers, and monitoring setup." }
+        ],
+        "deliverables": [
+          "Documented REST/GraphQL API",
+          "Database schema with seed data",
+          "Authentication & authorization system",
+          "API integration tests",
+          "Deployment configuration (Docker/PM2)"
+        ],
+        "duration": "3-8 weeks",
+        "cta": { "text": "Build Your API", "href": "/#contact" }
+      },
+      {
+        "slug": "database-solutions",
+        "title": "Database Solutions",
+        "description": "Practical database design and SQL solutions that keep information organized, accessible, and ready for application growth.",
+        "icon": "Database",
+        "svgPath": "M300,503.46388370962813C374.79870501325706,506.71871716319447,464.8034551963731,527.1746412648533,510.4981551193396,467.86667711651364C555.9287308511215,408.9015244558933,512.6030010748507,327.5744911775523,490.211057578863,256.5855673507754C471.097692560561,195.9906835881958,447.69079081568157,138.11976852964426,395.19560036434837,102.3242989838813C329.3053358748298,57.3949838291264,248.02791733380457,8.279543830951368,175.87071277845988,42.242879143198664C103.41431057327972,76.34704239035025,93.79494320519305,170.9812938413882,81.28167332365135,250.07896920659033C70.17666984294237,320.27484674793965,64.84698225790005,396.69656628748305,111.28512138212992,450.4950937839243C156.20124167950087,502.5303643271138,231.32542653798444,500.4755392045468,300,503.46388370962813",
+        "variant": "item-red",
+        "detailImage": "/assets/img/services.jpg",
+        "features": [
+          "Relational database design (PostgreSQL, MySQL)",
+          "NoSQL solutions with MongoDB and Redis",
+          "Query optimization and indexing strategies",
+          "Data migration and backup planning",
+          "Schema design for complex business requirements"
+        ],
+        "longDescription": [
+          "I design and implement database solutions that keep your data organized, accessible, and performant as your application grows. From relational schemas to document stores, I choose the right tool for each use case.",
+          "Whether you need a new database designed from scratch or an existing one optimized for better performance, I focus on data integrity, query efficiency, and scalable architecture."
+        ],
+        "technologies": ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Prisma", "SQL"],
+        "process": [
+          { "step": "Analysis", "description": "Understanding data relationships, access patterns, and performance requirements." },
+          { "step": "Schema Design", "description": "Creating entity-relationship diagrams, normalization, and indexing strategy." },
+          { "step": "Implementation", "description": "Building the schema, migrations, seed data, and query optimization." },
+          { "step": "Tuning", "description": "Performance benchmarking, slow query analysis, and indexing refinements." }
+        ],
+        "deliverables": [
+          "Database schema with documentation",
+          "Migration scripts (version controlled)",
+          "Seed data for development/testing",
+          "Query performance report",
+          "Backup and recovery strategy"
+        ],
+        "duration": "1-4 weeks",
+        "cta": { "text": "Design Your Database", "href": "/#contact" }
+      },
+      {
+        "slug": "ai-automation-agents",
+        "title": "AI Automation & Agents",
+        "description": "Intelligent automations and AI agents built with n8n to streamline repetitive workflows, connect tools, and help teams work more efficiently.",
+        "icon": "Cpu",
+        "svgPath": "M300,532.3542879108572C369.38199826031484,532.3153073249985,429.10787420159085,491.63046689027357,474.5244479745417,439.17860296908856C522.8885846962883,383.3225815378663,569.1668002868075,314.3205725914397,550.7432151929288,242.7694973846089C532.6665558377875,172.5657663291529,456.2379748765914,142.6223662098291,390.3689995646985,112.34683881706744C326.66090330228417,83.06452184765237,258.84405631176094,53.51806209861945,193.32584062364296,78.48882559362697C121.61183558270385,105.82097193414197,62.805066853699245,167.19869350419734,48.57481801355237,242.6138429142374C34.843463184063346,315.3850353017275,76.69343916112496,383.4422959591041,125.22947124332185,439.3748458443577C170.7312796277747,491.8107796887764,230.57421082200815,532.3932930995766,300,532.3542879108572",
+        "variant": "item-indigo",
+        "detailImage": "/assets/img/services.jpg",
+        "features": [
+          "Workflow automation with n8n and custom integrations",
+          "AI-powered agents for data processing and decision-making",
+          "Tool connection (CRM, email, databases, APIs)",
+          "Custom logic and conditional branching",
+          "Monitoring and error handling for production workflows"
+        ],
+        "longDescription": [
+          "I build intelligent automations and AI agents that streamline repetitive workflows and connect your tools seamlessly. Using n8n and custom integrations, I create systems that handle routine tasks so your team can focus on what matters.",
+          "From simple data syncing to complex multi-step workflows with AI decision-making, I design automations that are reliable, observable, and easy to modify as your needs evolve."
+        ],
+        "technologies": ["n8n", "OpenAI API", "Node.js", "Webhooks", "REST APIs", "Docker"],
+        "process": [
+          { "step": "Audit", "description": "Mapping your current workflows, identifying bottlenecks and automation opportunities." },
+          { "step": "Design", "description": "Architecting the automation flow, triggers, error handling, and data mapping." },
+          { "step": "Build", "description": "Implementing workflows in n8n with custom nodes, AI integrations, and testing." },
+          { "step": "Deploy", "description": "Production setup with monitoring, alerting, and documentation for your team." }
+        ],
+        "deliverables": [
+          "Production-ready automation workflows",
+          "AI agent configuration and prompts",
+          "Error handling and monitoring setup",
+          "Workflow documentation",
+          "30 days of optimization support"
+        ],
+        "duration": "1-3 weeks",
+        "cta": { "text": "Automate Your Workflow", "href": "/#contact" }
+      },
+      {
+        "slug": "cross-platform-mobile-development",
+        "title": "Cross-Platform Mobile Development",
+        "description": "Cross-platform mobile applications built with Flutter for consistent, responsive experiences across Android and iOS.",
+        "icon": "Phone",
+        "svgPath": "M300,566.797414625762C385.7384707136149,576.1784315230908,478.7894351017131,552.8928747891023,531.9192734346935,484.94944893311C584.6109503024035,417.5663521118492,582.489472248146,322.67544863468447,553.9536738515405,242.03673114598146C529.1557734026468,171.96086150256528,465.24506316201064,127.66468636344209,395.9583748389544,100.7403814666027C334.2173773831606,76.7482773500951,269.4350130405921,84.62216499799875,207.1952322260088,107.2889140133804C132.92018162631612,134.33871894543012,41.79353780512637,160.00259165414826,22.644507872594943,236.69541883565114C3.319112789854554,314.0945973066697,72.72355303640163,379.243833228382,124.04198916343866,440.3218312028393C172.9286146004772,498.5055451809895,224.45579914871206,558.5317968840102,300,566.797414625762",
+        "variant": "item-pink",
+        "detailImage": "/assets/img/services.jpg",
+        "features": [
+          "Single codebase for Android and iOS",
+          "Custom UI with Flutter widgets and animations",
+          "Native performance with platform-specific optimizations",
+          "Push notifications and deep linking",
+          "App Store and Play Store deployment support"
+        ],
+        "longDescription": [
+          "I build cross-platform mobile applications using Flutter that deliver native-like performance on both Android and iOS from a single codebase. From concept to deployment, I handle UI design, business logic, and platform integration.",
+          "Whether you need a consumer-facing app or an internal tool, I focus on smooth animations, fast load times, and a consistent experience across all devices."
+        ],
+        "technologies": ["Flutter", "Dart", "Firebase", "REST APIs", "SQLite", "GetX/Bloc"],
+        "process": [
+          { "step": "Planning", "description": "Defining platform requirements, screen flows, and native feature needs." },
+          { "step": "UI/UX Design", "description": "Creating platform-adaptive designs that follow Material Design and Cupertino guidelines." },
+          { "step": "Development", "description": "Building the app with Flutter widgets, state management, and API integrations." },
+          { "step": "Publishing", "description": "App Store and Play Store submission, screenshots, metadata, and release management." }
+        ],
+        "deliverables": [
+          "Cross-platform mobile application",
+          "Source code with setup instructions",
+          "App Store & Play Store listings",
+          "Push notification system",
+          "30 days of post-launch support"
+        ],
+        "duration": "4-10 weeks",
+        "cta": { "text": "Build Your App", "href": "/#contact" }
+      }
+    ]
+  },
+  "Contact": {
+    "title": "Contact",
+    "subtitle": "Have a project or idea? Write to me and let's talk.",
+    "info": [
+      { "icon": "MapPin", "label": "Address", "value": "Havana, Cuba" },
+      { "icon": "Mail", "label": "Email", "value": "fabianalejandrolemus@gmail.com" }
+    ],
+    "form": {
+      "nameLabel": "Name *",
+      "namePlaceholder": "Your name *",
+      "phoneLabel": "Phone (optional)",
+      "phonePlaceholder": "Your phone (optional)",
+      "emailLabel": "Email *",
+      "emailPlaceholder": "Your email *",
+      "messageLabel": "Message *",
+      "messagePlaceholder": "Your message *",
+      "send": "Send message",
+      "sending": "Sending...",
+      "success": "Your message has been sent. Thank you!",
+      "errors": {
+        "nameRequired": "Name is required.",
+        "nameMinLength": "Name must be at least 2 characters long.",
+        "nameMaxLength": "Name cannot be longer than 100 characters.",
+        "phoneInvalid": "Invalid phone number format.",
+        "phoneDigits": "Phone number must contain between 7 and 15 digits.",
+        "phoneMaxLength": "Phone number cannot be longer than 20 characters.",
+        "emailRequired": "Email is required.",
+        "emailInvalid": "Please enter a valid email address.",
+        "emailMaxLength": "Email cannot be longer than 254 characters.",
+        "messageRequired": "Message is required.",
+        "messageMinLength": "Message must be at least 10 characters long.",
+        "messageMaxLength": "Message cannot be longer than 2000 characters.",
+        "server": "The message could not be sent. Please try again.",
+        "network": "Network error, please try again.",
+        "generic": "Unexpected error while sending."
+      }
+    }
+  },
+  "Footer": {
+    "name": "Fabian Lemus",
+    "description": "Full Stack Developer",
+    "copyright": "Copyright",
+    "allRights": "All Rights Reserved",
+    "templateNote": "Template and code on my GitHub.",
+    "viewRepo": "View this website repository",
+    "downloadCv": "Download CV",
+    "visitIcon": "Visit"
+  },
+  "Common": {
+    "downloadCv": "Download CV",
+    "skip": "Skip to main content",
+    "toggleNav": "Toggle navigation",
+    "visit": "Visit"
+  },
+  "PortfolioDetail": {
+    "client": "Client",
+    "projectUrl": "Project URL",
+    "category": "Category",
+    "projectDate": "Project date",
+    "technologies": "Technologies",
+    "visitWebsite": "Visit Website",
+    "viewCode": "View Code",
+    "projectInformation": "Project information"
+  },
+  "Metadata": {
+    "title": "Fabian Lemus | Full-Stack Developer & Web Applications",
+    "description": "Fabian Lemus portfolio, full-stack developer specialized in fast, scalable, and maintainable web applications from Havana, Cuba.",
+    "keywords": ["Fabian Lemus", "full-stack developer", "web developer in Cuba", "web applications", "Next.js", "React", "TypeScript"],
+    "ogDescription": "Get to know Fabian Lemus' work and experience, a full-stack web applications developer.",
+    "twitterDescription": "Fabian Lemus' professional portfolio, full-stack developer.",
+    "jobTitle": "Full-Stack Developer",
+    "addressLocality": "Havana",
+    "knowsAbout": ["Full-stack development", "Web applications", "React", "Next.js", "TypeScript"]
+  }
+}

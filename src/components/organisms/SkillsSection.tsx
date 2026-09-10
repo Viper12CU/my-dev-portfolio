@@ -1,12 +1,15 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { skillsData } from "@/data/skills";
+import { useTranslations } from "next-intl";
 import SectionTitle from "@/components/atoms/SectionTitle";
 import SkillItem from "@/components/molecules/SkillItem";
 
 export default function SkillsSection() {
   const skillsRef = useRef<HTMLDivElement>(null);
+  const t = useTranslations("Skills");
+  const leftSkills = t.raw("left") as { name: string; percentage: number }[];
+  const rightSkills = t.raw("right") as { name: string; percentage: number }[];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -35,7 +38,7 @@ export default function SkillsSection() {
 
   return (
     <section id="skills" className="skills section">
-      <SectionTitle title={skillsData.title} subtitle={skillsData.subtitle} />
+      <SectionTitle title={t("title")} subtitle={t("subtitle")} />
 
       <div className="container" data-aos="fade-up" data-aos-delay="100">
         <div
@@ -43,12 +46,12 @@ export default function SkillsSection() {
           className="row skills-content skills-animation"
         >
           <div className="col-lg-6">
-            {skillsData.left.map((skill, i) => (
+            {leftSkills.map((skill, i) => (
               <SkillItem key={i} skill={skill} />
             ))}
           </div>
           <div className="col-lg-6">
-            {skillsData.right.map((skill, i) => (
+            {rightSkills.map((skill, i) => (
               <SkillItem key={i} skill={skill} />
             ))}
           </div>

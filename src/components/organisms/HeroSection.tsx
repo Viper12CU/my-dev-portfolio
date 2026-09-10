@@ -2,29 +2,42 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { heroData } from "@/data/hero";
+import { useTranslations } from "next-intl";
 import SocialLink from "@/components/atoms/SocialLink";
 import { FlipWords } from "../ui/flip-words";
 
 export default function HeroSection() {
   const typedRef = useRef<HTMLSpanElement>(null);
+  const t = useTranslations("Hero");
+  const heroTypedItems = t.raw("typed") as string[];
+  const heroName = "Fabian Lemus";
 
   useEffect(() => {
-    const loadTyped = async () => {
-      const Typed = (await import("typed.js")).default;
-      if (typedRef.current) {
-        new Typed(typedRef.current, {
-          strings: heroData.typedItems,
+  let typedInstance: { destroy: () => void } | null = null;
+
+  const loadTyped = async () => {
+    const Typed = (await import("typed.js")).default;
+    if (typedRef.current) {
+      const instance = new Typed(typedRef.current, {
+          strings: heroTypedItems,
           loop: true,
           typeSpeed: 100,
           backSpeed: 50,
           backDelay: 2000,
         });
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        typedInstance = { destroy: () => (instance as any).destroy() };
       }
     };
 
     loadTyped();
-  }, []);
+
+    return () => {
+      if (typedInstance) {
+        typedInstance.destroy();
+      }
+    };
+  }, [heroTypedItems]);
 
   return (
     <section id="hero" className="hero section light-background">
@@ -41,12 +54,12 @@ export default function HeroSection() {
       <div className="container" data-aos="zoom-out">
         <div className="row justify-content-center">
           <div className="col-lg-9">
-            <h2>{heroData.name}</h2>
+            <h2>{heroName}</h2>
             <div className="hero-typed">
               I&apos;m{" "}
               <FlipWords
-              duration={1100}
-                words={heroData.typedItems}
+                duration={1100}
+                words={heroTypedItems}
                 className="hero-flip-words"
               />
               <span
@@ -55,9 +68,9 @@ export default function HeroSection() {
               />
             </div>
             <div className="social-links">
-              {heroData.socialLinks.map((link, i) => (
-                <SocialLink key={i} icon={link.icon} href={link.href} label={`Visitar ${link.icon}`} />
-              ))}
+              <SocialLink icon="Linkedin" href="https://linkedin.com/in/fabian-alejandro-lemus-865a643b1" label="Linkedin" />
+              <SocialLink icon="Github" href="https://github.com/Viper12CU" label="Github" />
+              <SocialLink icon="Send" href="https://t.me/@Alex_fer4" label="Telegram" />
             </div>
           </div>
         </div>

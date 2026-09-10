@@ -1,7 +1,7 @@
-import Link from "next/link";
 import Image from "next/image";
 import type { PortfolioItem } from "@/data/portfolio";
 import Icon from "@/components/atoms/Icon";
+import { Link } from "@/i18n/navigation";
 
 interface PortfolioCardProps {
   item: PortfolioItem;

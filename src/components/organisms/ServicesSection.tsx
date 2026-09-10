@@ -1,18 +1,22 @@
-import { servicesData } from "@/data/services";
+import { useTranslations } from "next-intl";
 import SectionTitle from "@/components/atoms/SectionTitle";
 import ServiceCard from "@/components/molecules/ServiceCard";
+import type { ServiceItem } from "@/data/services/types";
 
 export default function ServicesSection() {
+  const t = useTranslations("Services");
+  const items = t.raw("items") as ServiceItem[];
+
   return (
     <section id="services" className="services section">
       <SectionTitle
-        title={servicesData.title}
-        subtitle={servicesData.subtitle}
+        title={t("title")}
+        subtitle={t("subtitle")}
       />
 
       <div className="container">
         <div className="row gy-4">
-          {servicesData.items.map((item, i) => (
+          {items.map((item: ServiceItem, i: number) => (
             <div
               key={i}
               className="col-lg-4 col-md-6"

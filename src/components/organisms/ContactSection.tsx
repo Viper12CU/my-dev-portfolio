@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { contactData } from "@/data/contact";
+import { useTranslations } from "next-intl";
 import SectionTitle from "@/components/atoms/SectionTitle";
 import ContactInfoItem from "@/components/molecules/ContactInfoItem";
 import Icon from "@/components/atoms/Icon";
@@ -21,29 +21,26 @@ function validateField(name: keyof FormData, value: string): string | undefined 
   const v = value.trim();
   switch (name) {
     case "name":
-      if (!v) return "Name is required.";
-      if (v.length < 2) return "Name must be at least 2 characters long.";
-      if (v.length > 100) return "Name cannot be longer than 100 characters.";
+      if (!v) return "nameRequired";
+      if (v.length < 2) return "nameMinLength";
+      if (v.length > 100) return "nameMaxLength";
       return undefined;
     case "phone":
-      if (!v) return undefined; // optional
-      // Allows +, digits, spaces, hyphens, parentheses, and periods
-      if (!/^\+?[\d\s\-().]+$/.test(v))
-        return "Invalid phone number format.";
+      if (!v) return undefined;
+      if (!/^\+?[\d\s\-().]+$/.test(v)) return "phoneInvalid";
       const digits = v.replace(/\D/g, "");
-      if (digits.length < 7 || digits.length > 15)
-        return "Phone number must contain between 7 and 15 digits.";
-      if (v.length > 20) return "Phone number cannot be longer than 20 characters.";
+      if (digits.length < 7 || digits.length > 15) return "phoneDigits";
+      if (v.length > 20) return "phoneMaxLength";
       return undefined;
     case "email":
-      if (!v) return "Email is required.";
-      if (!emailRegex.test(v)) return "Please enter a valid email address.";
-      if (v.length > 254) return "Email cannot be longer than 254 characters.";
+      if (!v) return "emailRequired";
+      if (!emailRegex.test(v)) return "emailInvalid";
+      if (v.length > 254) return "emailMaxLength";
       return undefined;
     case "message":
-      if (!v) return "Message is required.";
-      if (v.length < 10) return "Message must be at least 10 characters long.";
-      if (v.length > 2000) return "Message cannot be longer than 2000 characters.";
+      if (!v) return "messageRequired";
+      if (v.length < 10) return "messageMinLength";
+      if (v.length > 2000) return "messageMaxLength";
       return undefined;
     default:
       return undefined;
@@ -60,6 +57,9 @@ function validateAll(data: FormData): FormErrors {
 }
 
 export default function ContactSection() {
+  const t = useTranslations("Contact");
+  const info = t.raw("info") as { icon: string; label: string; value: string }[];
+
   const [formData, setFormData] = useState<FormData>({
     name: "",
     phone: "",
@@ -78,7 +78,6 @@ export default function ContactSection() {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Validate live if the field has already been touched or has an error
     if (touched[name as keyof FormData] || errors[name as keyof FormData]) {
       const err = validateField(name as keyof FormData, value);
       setErrors((prev) => ({ ...prev, [name]: err }));
@@ -125,7 +124,7 @@ export default function ContactSection() {
       const data = await res.json().catch(() => ({}));
 
       if (!res.ok) {
-        throw new Error(data.error || "The message could not be sent. Please try again.");
+        throw new Error(data.error || t("form.errors.server"));
       }
 
       setStatus("success");
@@ -134,21 +133,31 @@ export default function ContactSection() {
       setErrors({});
     } catch (err) {
       setStatus("error");
-      setSubmitError(err instanceof Error ? err.message : "Unexpected error while sending.");
+      setSubmitError(err instanceof Error ? err.message : t("form.errors.generic"));
+    }
+  };
+
+  const getError = (key: keyof FormErrors) => {
+    const errorKey = errors[key];
+    if (!errorKey) return "\u00A0";
+    try {
+      return t(`form.errors.${errorKey}`);
+    } catch {
+      return errorKey;
     }
   };
 
   return (
     <section id="contact" className="contact section">
       <SectionTitle
-        title={contactData.title}
-        subtitle={contactData.subtitle}
+        title={t("title")}
+        subtitle={t("subtitle")}
       />
 
       <div className="container" data-aos="fade" data-aos-delay="100">
         <div className="row gy-4">
           <div className="col-lg-4">
-            {contactData.info.map((item, i) => (
+            {info.map((item, i) => (
               <ContactInfoItem key={i} item={item} />
             ))}
           </div>
@@ -163,13 +172,13 @@ export default function ContactSection() {
             >
               <div className="row gy-4">
                 <div className="col-md-6">
-                  <label htmlFor="contact-name" className="sr-only">Name *</label>
+                  <label htmlFor="contact-name" className="sr-only">{t("form.nameLabel")}</label>
                   <input
                     type="text"
                     id="contact-name"
                     name="name"
                     className={`form-control ${errors.name ? "is-invalid" : ""}`}
-                    placeholder="Your Name *"
+                    placeholder={t("form.namePlaceholder")}
                     required
                     maxLength={100}
                     aria-required="true"
@@ -186,17 +195,17 @@ export default function ContactSection() {
                     style={{ color: "#df1529", fontSize: "13px" }}
                     aria-live="polite"
                   >
-                    {errors.name ?? "\u00A0"}
+                    {getError("name")}
                   </small>
                 </div>
                 <div className="col-md-6">
-                  <label htmlFor="contact-phone" className="sr-only">Phone (optional)</label>
+                  <label htmlFor="contact-phone" className="sr-only">{t("form.phoneLabel")}</label>
                   <input
                     type="tel"
                     id="contact-phone"
                     className={`form-control ${errors.phone ? "is-invalid" : ""}`}
                     name="phone"
-                    placeholder="Your Phone (optional)"
+                    placeholder={t("form.phonePlaceholder")}
                     maxLength={20}
                     aria-invalid={!!errors.phone}
                     aria-describedby="error-phone"
@@ -213,17 +222,17 @@ export default function ContactSection() {
                     style={{ color: "#df1529", fontSize: "13px" }}
                     aria-live="polite"
                   >
-                    {errors.phone ?? "\u00A0"}
+                    {getError("phone")}
                   </small>
                 </div>
                 <div className="col-md-12">
-                  <label htmlFor="contact-email" className="sr-only">Email *</label>
+                  <label htmlFor="contact-email" className="sr-only">{t("form.emailLabel")}</label>
                   <input
                     type="email"
                     id="contact-email"
                     className={`form-control ${errors.email ? "is-invalid" : ""}`}
                     name="email"
-                    placeholder="Your Email *"
+                    placeholder={t("form.emailPlaceholder")}
                     required
                     maxLength={254}
                     aria-required="true"
@@ -241,17 +250,17 @@ export default function ContactSection() {
                     style={{ color: "#df1529", fontSize: "13px" }}
                     aria-live="polite"
                   >
-                    {errors.email ?? "\u00A0"}
+                    {getError("email")}
                   </small>
                 </div>
                 <div className="col-md-12">
-                  <label htmlFor="contact-message" className="sr-only">Message *</label>
+                  <label htmlFor="contact-message" className="sr-only">{t("form.messageLabel")}</label>
                   <textarea
                     id="contact-message"
                     className={`form-control ${errors.message ? "is-invalid" : ""}`}
                     name="message"
                     rows={6}
-                    placeholder="Message *"
+                    placeholder={t("form.messagePlaceholder")}
                     required
                     maxLength={2000}
                     aria-required="true"
@@ -268,7 +277,7 @@ export default function ContactSection() {
                     style={{ color: "#df1529", fontSize: "13px" }}
                     aria-live="polite"
                   >
-                    {errors.message ?? "\u00A0"}
+                    {getError("message")}
                   </small>
                 </div>
                 <div className="col-md-12 text-center">
@@ -307,10 +316,10 @@ export default function ContactSection() {
                     aria-live="polite"
                     style={{ display: status === "success" ? "block" : "none" }}
                   >
-                    Your message has been sent. Thank you!
+                    {t("form.success")}
                   </div>
                   <button type="submit" disabled={isLoading}>
-                    {isLoading ? "Sending..." : "Send Message"}
+                    {isLoading ? t("form.sending") : t("form.send")}
                     <Icon name="Send" size={16} aria-hidden="true" />
                   </button>
                 </div>
