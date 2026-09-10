@@ -20,9 +20,9 @@ export default function TestimonialCard({ item }: TestimonialCardProps) {
               </p>
               <h3>{item.name}</h3>
               <h4>{item.role}</h4>
-              <div className="stars">
+              <div className="stars" aria-label="5 de 5 estrellas">
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <Icon key={star} name="Star" />
+                  <Icon key={star} name="Star" aria-hidden="true" />
                 ))}
               </div>
             </div>

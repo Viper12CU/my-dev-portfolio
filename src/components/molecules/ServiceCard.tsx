@@ -16,6 +16,7 @@ export default function ServiceCard({ item }: ServiceCardProps) {
           height="100"
           viewBox="0 0 600 600"
           xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
         >
           <path
             stroke="none"
@@ -24,7 +25,7 @@ export default function ServiceCard({ item }: ServiceCardProps) {
             d={item.svgPath}
           />
         </svg>
-        <Icon name={item.icon} size={48} />
+        <Icon name={item.icon} size={48} aria-hidden="true" />
       </div>
       <Link href={`/services/${item.slug}`} className="stretched-link">
         <h3>{item.title}</h3>

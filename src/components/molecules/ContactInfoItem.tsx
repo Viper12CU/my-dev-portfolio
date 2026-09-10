@@ -8,7 +8,7 @@ interface ContactInfoItemProps {
 export default function ContactInfoItem({ item }: ContactInfoItemProps) {
   return (
     <div className="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-      <Icon name={item.icon} className="flex-shrink-0" />
+      <Icon name={item.icon} className="flex-shrink-0" aria-hidden="true" />
       <div>
         <h3>{item.title}</h3>
         <p>{item.content}</p>

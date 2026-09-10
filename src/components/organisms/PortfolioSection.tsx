@@ -61,6 +61,8 @@ export default function PortfolioSection() {
             className="portfolio-filters isotope-filters "
             data-aos="fade-up"
             data-aos-delay="100"
+            role="tablist"
+            aria-label="Filtrar proyectos por categoría"
           >
             {portfolioData.filters.map((filter, i) => (
               <li
@@ -68,6 +70,15 @@ export default function PortfolioSection() {
                 data-filter={filter.filter}
                 className={i === 0 ? "filter-active" : ""}
                 onClick={(e) => handleFilterClick(e)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    handleFilterClick(e as unknown as React.MouseEvent<HTMLLIElement>);
+                  }
+                }}
+                tabIndex={0}
+                role="tab"
+                aria-selected={i === 0}
               >
                 {filter.label}
               </li>

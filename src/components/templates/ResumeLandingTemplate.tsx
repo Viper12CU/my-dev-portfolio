@@ -33,7 +33,7 @@ export default function ResumeLandingTemplate() {
   return (
     <>
       <Header />
-      <main className="main">
+      <main id="main-content" className="main">
         <HeroSection />
         <AboutSection />
         {/* <StatsSection /> */}

@@ -85,6 +85,9 @@ export default function RootLayout({
         />
       </head>
       <body className="index-page">
+        <a href="#main-content" className="skip-link">
+          Saltar al contenido principal
+        </a>
         {children}
       </body>
     </html>

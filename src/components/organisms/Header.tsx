@@ -34,10 +34,32 @@ export default function Header() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") close();
+      if (e.key === "Tab" && isOpen) {
+        const nav = document.getElementById("navmenu");
+        if (!nav) return;
+        const focusable = nav.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
     if (isOpen) {
       document.body.style.overflow = "hidden";
       window.addEventListener("keydown", handleKeyDown);
+      const nav = document.getElementById("navmenu");
+      if (nav) {
+        const firstLink = nav.querySelector<HTMLElement>('a[href], button');
+        firstLink?.focus();
+      }
     } else {
       document.body.style.overflow = "";
     }
@@ -135,7 +157,7 @@ export default function Header() {
         id="header"
         className={`header d-flex flex-column justify-content-center ${isOpen ? "header-show" : ""}`}
       >
-        <nav id="navmenu" className="navmenu">
+        <nav id="navmenu" className="navmenu" aria-label="Navegación principal">
           <ul>
             <li>
               <a

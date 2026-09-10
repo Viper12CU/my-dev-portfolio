@@ -30,11 +30,12 @@ export default function HeroSection() {
     <section id="hero" className="hero section light-background">
       <Image
         src="/assets/img/hero-bg-3.jpeg"
-        alt="background hero"
+        alt=""
         fill
         priority
         sizes="100vw"
         style={{ objectFit: "cover" }}
+        aria-hidden="true"
       />
 
       <div className="container" data-aos="zoom-out">
@@ -55,7 +56,7 @@ export default function HeroSection() {
             </div>
             <div className="social-links">
               {heroData.socialLinks.map((link, i) => (
-                <SocialLink key={i} icon={link.icon} href={link.href} />
+                <SocialLink key={i} icon={link.icon} href={link.href} label={`Visitar ${link.icon}`} />
               ))}
             </div>
           </div>

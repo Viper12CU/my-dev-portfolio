@@ -29,13 +29,21 @@ export default function PortfolioCard({ item }: PortfolioCardProps) {
             role="button"
             title="View application"
             className="details-link"
+            tabIndex={0}
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
               window.open(item.appUrl, "_blank", "noopener,noreferrer");
             }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                e.stopPropagation();
+                window.open(item.appUrl, "_blank", "noopener,noreferrer");
+              }
+            }}
           >
-            <Icon name="ExternalLink" />
+            <Icon name="ExternalLink" aria-hidden="true" />
           </span>
         </div>
       </Link>

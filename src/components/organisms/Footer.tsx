@@ -10,7 +10,7 @@ export default function Footer() {
         <p>{footerData.description}</p>
         <div className="social-links d-flex justify-content-center">
           {footerData.socialLinks.map((link, i) => (
-            <SocialLink key={i} icon={link.icon} href={link.href} />
+            <SocialLink key={i} icon={link.icon} href={link.href} label={`Visitar ${link.icon}`} />
           ))}
         </div>
         <div className="footer-cv">
