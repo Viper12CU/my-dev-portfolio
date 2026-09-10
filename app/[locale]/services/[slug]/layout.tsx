@@ -1,7 +1,7 @@
 import { hasLocale } from "next-intl";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { ArrowRightCircle, Headphones, Mail } from "lucide-react";
-import { servicesData, getServiceBySlug } from "@/data/services";
+import type { ServiceItem } from "@/data/services";
 import { routing } from "@/i18n/routing";
 import { Link } from "@/i18n/navigation";
 import Header from "@/components/organisms/Header";
@@ -20,9 +20,10 @@ export default async function ServiceLayout({
   if (!hasLocale(routing.locales, locale)) return null;
 
   setRequestLocale(locale);
-  const service = getServiceBySlug(slug);
   const t = await getTranslations("Services");
   const navT = await getTranslations("Nav");
+  const services = t.raw("items") as ServiceItem[];
+  const service = services.find((item) => item.slug === slug);
 
   return (
     <>
@@ -50,7 +51,7 @@ export default async function ServiceLayout({
                   <div className="service-box">
                     <h4>{t("list")}</h4>
                     <div className="services-list">
-                      {servicesData.items.map((s) => (
+                      {services.map((s) => (
                         <Link
                           key={s.slug}
                           href={`/services/${s.slug}`}

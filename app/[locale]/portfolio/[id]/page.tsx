@@ -8,6 +8,7 @@ import Header from "@/components/organisms/Header";
 import Footer from "@/components/organisms/Footer";
 import ScrollTop from "@/components/organisms/ScrollTop";
 import { portfolioData } from "@/data/portfolio";
+import type { PortfolioItem } from "@/data/portfolio";
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -25,7 +26,8 @@ export async function generateMetadata({
 }) {
   const { locale, id } = await params;
   if (!hasLocale(routing.locales, locale)) return {};
-  const item = portfolioData.items.find((i) => i.id === Number(id));
+  const portfolioItems = (await getTranslations({ locale, namespace: "Portfolio" })).raw("items") as PortfolioItem[];
+  const item = portfolioItems.find((portfolioItem) => portfolioItem.id === Number(id));
   if (!item) return { title: "Portfolio Not Found" };
 
   return {
@@ -44,11 +46,11 @@ export default async function PortfolioDetailPage({
   if (!hasLocale(routing.locales, locale)) notFound();
 
   setRequestLocale(locale);
-  const item = portfolioData.items.find((i) => i.id === Number(id));
-  if (!item) notFound();
-
   const navT = await getTranslations("Nav");
   const portfolioT = await getTranslations("Portfolio");
+  const portfolioItems = portfolioT.raw("items") as PortfolioItem[];
+  const item = portfolioItems.find((portfolioItem) => portfolioItem.id === Number(id));
+  if (!item) notFound();
 
   return (
     <>

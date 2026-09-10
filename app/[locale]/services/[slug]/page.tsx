@@ -3,7 +3,8 @@ import { hasLocale } from "next-intl";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { CheckCircle, CheckCircle2, Clock, ArrowRight } from "lucide-react";
-import { servicesData, getServiceBySlug } from "@/data/services";
+import { servicesData } from "@/data/services";
+import type { ServiceItem } from "@/data/services";
 import { routing } from "@/i18n/routing";
 import { Link } from "@/i18n/navigation";
 
@@ -24,7 +25,8 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   if (!hasLocale(routing.locales, locale)) return {};
   const t = await getTranslations({ locale, namespace: "Services" });
-  const service = getServiceBySlug(slug);
+  const services = t.raw("items") as ServiceItem[];
+  const service = services.find((item) => item.slug === slug);
   if (!service) return { title: t("title") };
 
   return {
@@ -43,10 +45,10 @@ export default async function ServiceDetailPage({
   if (!hasLocale(routing.locales, locale)) notFound();
 
   setRequestLocale(locale);
-  const service = getServiceBySlug(slug);
-  if (!service) notFound();
-
   const t = await getTranslations("Services");
+  const services = t.raw("items") as ServiceItem[];
+  const service = services.find((item) => item.slug === slug);
+  if (!service) notFound();
 
   return (
     <div className="col-lg-8 ps-lg-5" data-aos="fade-up" data-aos-delay="200">
