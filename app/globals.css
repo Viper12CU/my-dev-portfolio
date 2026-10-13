@@ -753,6 +753,84 @@ body {
   transform: translateX(4px);
 }
 
+/* LoopVideo - loading / error confinados al hueco del video */
+.loop-video-wrapper {
+  background-color: var(--surface-color);
+}
+
+.loop-video-wrapper video {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.loop-video-loading,
+.loop-video-error {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.loop-video-loading {
+  background-color: var(--surface-color);
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.loop-video-spinner {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 3px solid var(--accent-color);
+  border-top-color: transparent;
+  animation: loop-video-spin 1s linear infinite;
+}
+
+@keyframes loop-video-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loop-video-error {
+  background-color: color-mix(in srgb, var(--surface-color), transparent 8%);
+  color: var(--default-color);
+}
+
+.loop-video-error svg {
+  color: #df1529;
+}
+
+.loop-video-error p {
+  margin: 0;
+  padding: 10px 18px;
+  background: #df1529;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 8px;
+  max-width: 100%;
+}
+
+.loop-video-retry {
+  border: none;
+  cursor: pointer;
+  padding: 8px 22px;
+  font-size: 14px;
+}
+
 /* Service Details - Sidebar sticky en vista monitor (desktop) */
 @media (min-width: 992px) {
   #service-details {

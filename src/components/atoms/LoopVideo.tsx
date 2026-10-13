@@ -1,26 +1,43 @@
 // components/LoopVideo.tsx
 "use client";
 
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
+import { RotateCcw, TriangleAlert } from "lucide-react";
 
 type Props = {
   src: string;
-  poster: string;
+  /** @deprecated Ya no se usa: en lugar del poster se muestra loading/error. Se mantiene opcional por compatibilidad. */
+  poster?: string;
   className?: string;
   style?: CSSProperties;
+  timeoutMs?: number;
+  loadingText?: string;
+  errorText?: string;
+  retryText?: string;
 };
 
-export default function LoopVideo({ src, poster, className, style }: Props) {
-  const ref = useRef<HTMLVideoElement>(null);
+type Status = "loading" | "ready" | "error";
+
+export default function LoopVideo({
+  src,
+  className,
+  style,
+  timeoutMs = 10000,
+  loadingText = "Cargando video…",
+  errorText = "No se pudo cargar el video.",
+  retryText = "Reintentar",
+}: Props) {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [load, setLoad] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [status, setStatus] = useState<Status>("loading");
+  const [retryKey, setRetryKey] = useState(0);
 
-  // Detecta cuándo está cerca de la pantalla
+  // Detecta cuándo el contenedor está cerca de la pantalla
   useEffect(() => {
-    const el = ref.current;
+    const el = wrapperRef.current;
     if (!el) return;
-
-    el.disableRemotePlayback = true;
 
     const io = new IntersectionObserver(
       ([entry]) => {
@@ -34,10 +51,19 @@ export default function LoopVideo({ src, poster, className, style }: Props) {
     return () => io.disconnect();
   }, []);
 
-  // Reproduce/pausa cuando el src ya existe en el DOM
+  // Timeout de 10s: si no hay señal de ready, pasar a error
   useEffect(() => {
-    const el = ref.current;
-    if (!el || !load) return;
+    if (!load || status !== "loading") return;
+    const timer = setTimeout(() => {
+      setStatus((prev) => (prev === "loading" ? "error" : prev));
+    }, timeoutMs);
+    return () => clearTimeout(timer);
+  }, [load, status, timeoutMs, retryKey]);
+
+  // Reproduce/pausa cuando el src ya existe en el DOM y el video está listo
+  useEffect(() => {
+    const el = videoRef.current;
+    if (!el || !load || status !== "ready") return;
 
     if (visible) {
       el.play().catch((err) => {
@@ -47,30 +73,79 @@ export default function LoopVideo({ src, poster, className, style }: Props) {
     } else {
       el.pause();
     }
-  }, [load, visible]);
+  }, [load, visible, status, retryKey]);
+
+  const markReady = useCallback(() => {
+    setStatus((prev) => (prev === "ready" ? prev : "ready"));
+  }, []);
+
+  const markError = useCallback(() => {
+    setStatus("error");
+  }, []);
+
+  const handleRetry = useCallback(() => {
+    setStatus("loading");
+    setLoad(false);
+    // Re-monta el <video> y reinicia el timeout en el siguiente tick
+    setRetryKey((k) => k + 1);
+    requestAnimationFrame(() => setLoad(true));
+  }, []);
 
   return (
-    <video
-      ref={ref}
-      className={className}
-      poster={poster}
-      src={load ? src : undefined}
-      autoPlay
-      muted
-      loop
-      playsInline
-      preload="metadata"
-      disablePictureInPicture
-      aria-hidden="true"
-      tabIndex={-1}
-      onContextMenu={(e) => e.preventDefault()}
+    <div
+      ref={wrapperRef}
+      className={`loop-video-wrapper ${className ?? ""}`}
       style={{
+        position: "relative",
         width: "100%",
-        height: "auto",
-        objectFit: "cover",
-        pointerEvents: "none",
+        overflow: "hidden",
         ...style,
       }}
-    />
+      data-testid="loop-video"
+    >
+      {status === "loading" && (
+        <div className="loop-video-loading" role="status" aria-live="polite">
+          <span className="loop-video-spinner" aria-hidden="true" />
+          <span>{loadingText}</span>
+        </div>
+      )}
+
+      {status === "error" && (
+        <div className="loop-video-error" role="alert">
+          <TriangleAlert size={22} aria-hidden="true" />
+          <p>{errorText}</p>
+          <button type="button" className="btn-get-started loop-video-retry" onClick={handleRetry}>
+            <RotateCcw size={16} aria-hidden="true" />
+            {retryText}
+          </button>
+        </div>
+      )}
+
+      <video
+        key={retryKey}
+        ref={videoRef}
+        src={load ? src : undefined}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        disablePictureInPicture
+        aria-hidden="true"
+        tabIndex={-1}
+        onContextMenu={(e) => e.preventDefault()}
+        onCanPlay={markReady}
+        onPlaying={markReady}
+        onError={markError}
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          pointerEvents: "none",
+          opacity: status === "ready" ? 1 : 0,
+          transition: "opacity 0.3s ease",
+        }}
+      />
+    </div>
   );
 }
