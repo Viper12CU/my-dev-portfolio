@@ -1,5 +1,6 @@
 import { hasLocale } from "next-intl";
 import { setRequestLocale, getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
 import { ArrowRightCircle, Headphones, Mail } from "lucide-react";
 import type { ServiceItem } from "@/data/services";
 import { routing } from "@/i18n/routing";
@@ -17,7 +18,7 @@ export default async function ServiceLayout({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
-  if (!hasLocale(routing.locales, locale)) return null;
+  if (!hasLocale(routing.locales, locale)) notFound();
 
   setRequestLocale(locale);
   const t = await getTranslations("Services");

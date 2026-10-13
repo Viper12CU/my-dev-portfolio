@@ -609,6 +609,14 @@
     "toggleNav": "Alternar navegación",
     "visit": "Visitar"
   },
+  "NotFound": {
+    "badge": "Error 404",
+    "title": "Página no encontrada",
+    "description": "La página que buscas no existe, fue movida o el enlace es incorrecto. Vuelve al inicio o escríbeme desde contacto.",
+    "backHome": "Volver al inicio",
+    "contact": "Ir a contacto",
+    "brand": "Fabian Lemus"
+  },
   "PortfolioDetail": {
     "client": "Cliente",
     "projectUrl": "URL del proyecto",

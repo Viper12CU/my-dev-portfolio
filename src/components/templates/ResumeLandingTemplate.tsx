@@ -15,14 +15,6 @@ import ScrollTop from "@/components/organisms/ScrollTop";
 export default function ResumeLandingTemplate() {
   useEffect(() => {
     const loadLibs = async () => {
-      const AOS = (await import("aos")).default;
-      AOS.init({
-        duration: 600,
-        easing: "ease-in-out",
-        once: true,
-        mirror: false,
-      });
-
       const PureCounter = (await import("@srexi/purecounterjs")).default;
       new PureCounter();
     };
