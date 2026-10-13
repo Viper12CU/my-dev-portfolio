@@ -36,6 +36,7 @@ export const backendApiDevelopment: ServiceItem = {
     "Deployment configuration (Docker/PM2)",
   ],
   duration: "3-8 weeks",
+  promocionalVideo: "/assets/videos/backend-api-development.mp4",
   cta: {
     text: "Build Your API",
     href: "/#contact",

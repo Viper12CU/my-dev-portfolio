@@ -1,7 +1,7 @@
-import Link from "next/link";
 import Image from "next/image";
 import type { PortfolioItem } from "@/data/portfolio";
 import Icon from "@/components/atoms/Icon";
+import { Link } from "@/i18n/navigation";
 
 interface PortfolioCardProps {
   item: PortfolioItem;
@@ -29,13 +29,21 @@ export default function PortfolioCard({ item }: PortfolioCardProps) {
             role="button"
             title="View application"
             className="details-link"
+            tabIndex={0}
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
               window.open(item.appUrl, "_blank", "noopener,noreferrer");
             }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                e.stopPropagation();
+                window.open(item.appUrl, "_blank", "noopener,noreferrer");
+              }
+            }}
           >
-            <Icon name="ExternalLink" />
+            <Icon name="ExternalLink" aria-hidden="true" />
           </span>
         </div>
       </Link>

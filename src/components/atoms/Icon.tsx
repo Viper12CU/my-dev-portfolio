@@ -65,9 +65,10 @@ interface IconProps {
   name: string;
   className?: string;
   size?: number;
+  "aria-hidden"?: boolean | "true" | "false";
 }
 
-export default function Icon({ name, className = "", size = 20 }: IconProps) {
+export default function Icon({ name, className = "", size = 20, "aria-hidden": ariaHidden }: IconProps) {
   const Component = icons[name] || Circle;
-  return <Component className={className} size={size} />;
+  return <Component className={className} size={size} aria-hidden={ariaHidden} />;
 }

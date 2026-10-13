@@ -36,6 +36,7 @@ export const fullStackWebDevelopment: ServiceItem = {
     "30 days of post-launch support",
   ],
   duration: "4-12 weeks",
+  promocionalVideo: "/assets/videos/full-stack-web-development.mp4",
   cta: {
     text: "Start Your Project",
     href: "/#contact",

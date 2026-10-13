@@ -36,6 +36,7 @@ export const crossPlatformMobileDevelopment: ServiceItem = {
     "30 days of post-launch support",
   ],
   duration: "4-10 weeks",
+  promocionalVideo: "/assets/videos/cross-platform-mobile-development.mp4",
   cta: {
     text: "Build Your App",
     href: "/#contact",

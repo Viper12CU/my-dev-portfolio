@@ -22,7 +22,7 @@ export const contactData: ContactData = {
     },
     {
       icon: "Phone",
-      title: "Teléfono",
+      title: "Phone",
       content: "+53 58816764",
     },
   ],

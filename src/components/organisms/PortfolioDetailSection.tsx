@@ -2,6 +2,7 @@
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import {
   BlossomCarousel,
   BlossomPrev,
@@ -14,6 +15,8 @@ interface PortfolioDetailSectionProps {
 }
 
 export default function PortfolioDetailSection({ item }: PortfolioDetailSectionProps) {
+  const t = useTranslations("PortfolioDetail");
+
   return (
     <section id="portfolio-details" className="portfolio-details section">
       <div className="container" data-aos="fade-up">
@@ -26,7 +29,7 @@ export default function PortfolioDetailSection({ item }: PortfolioDetailSectionP
             {item.detailImages.map((img, index) => (
               <div key={index} data-blossom-slide className="slide size-full overflow-hidden snap-center">
                 <div className="card size-full">
-                  <Image src={img} alt={`${item.title} - ${index + 1}`}  fill sizes="900px" className="object-cover" />
+                  <Image src={img} alt={`${item.title} - ${index + 1}`} fill sizes="900px" className="object-cover" />
                 </div>
               </div>
             ))}
@@ -53,21 +56,21 @@ export default function PortfolioDetailSection({ item }: PortfolioDetailSectionP
 
           <div className="col-lg-3" data-aos="fade-up" data-aos-delay="100">
             <div className="portfolio-info">
-              <h3>Project information</h3>
+              <h3>{t("projectInformation")}</h3>
               <ul>
-                <li><strong>Category</strong> {item.category.replace("filter-", "").charAt(0).toUpperCase() + item.category.replace("filter-", "").slice(1)}</li>
-                <li><strong>Client</strong> {item.client}</li>
-                <li><strong>Project date</strong> {item.projectDate}</li>
-                <li><strong>Technologies</strong> {item.technologies.join(", ")}</li>
-                <li><strong>Project URL</strong> <a href={item.appUrl} target="_blank" rel="noopener noreferrer">{item.appUrl.replace("https://", "")}</a></li>
+                <li><strong>{t("category")}</strong> {item.category.replace("filter-", "").charAt(0).toUpperCase() + item.category.replace("filter-", "").slice(1)}</li>
+                <li><strong>{t("client")}</strong> {item.client}</li>
+                <li><strong>{t("projectDate")}</strong> {item.projectDate}</li>
+                <li><strong>{t("technologies")}</strong> {item.technologies.join(", ")}</li>
+                <li><strong>{t("projectUrl")}</strong> <a href={item.appUrl} target="_blank" rel="noopener noreferrer">{item.appUrl.replace("https://", "")}</a></li>
                 <li>
                   <a href={item.appUrl} className="btn-visit align-self-start" target="_blank" rel="noopener noreferrer">
-                    Visit Website
+                    {t("visitWebsite")}
                   </a>
                 </li>
                 <li>
                   <a href={item.githubUrl} className="btn-visit align-self-start" target="_blank" rel="noopener noreferrer">
-                    View Code
+                    {t("viewCode")}
                   </a>
                 </li>
               </ul>

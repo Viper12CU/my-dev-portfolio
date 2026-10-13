@@ -17,6 +17,7 @@ export interface ServiceItem {
   process: ServiceProcess[];
   deliverables: string[];
   duration: string;
+  promocionalVideo: string;
   cta: {
     text: string;
     href: string;

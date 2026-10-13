@@ -1,11 +1,14 @@
 "use client";
 
 import { useEffect } from "react";
-import { testimonialsData } from "@/data/testimonials";
+import { useTranslations } from "next-intl";
 import SectionTitle from "@/components/atoms/SectionTitle";
 import TestimonialCard from "@/components/molecules/TestimonialCard";
 
 export default function TestimonialsSection() {
+  const t = useTranslations("Testimonials");
+  const items = t.raw("items") as { id: number; name: string; role: string; quote: string; imageUrl: string }[];
+
   useEffect(() => {
     const loadSwiper = async () => {
       const Swiper = (await import("swiper")).default;
@@ -30,8 +33,8 @@ export default function TestimonialsSection() {
   return (
     <section id="testimonials" className="testimonials section">
       <SectionTitle
-        title={testimonialsData.title}
-        subtitle={testimonialsData.subtitle}
+        title={t("title")}
+        subtitle={t("subtitle")}
       />
 
       <div className="container" data-aos="fade-up" data-aos-delay="100">
@@ -54,7 +57,7 @@ export default function TestimonialsSection() {
             }}
           />
           <div className="swiper-wrapper">
-            {testimonialsData.items.map((item) => (
+            {items.map((item) => (
               <TestimonialCard key={item.id} item={item} />
             ))}
           </div>
