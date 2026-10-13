@@ -36,6 +36,7 @@ export const frontendUx: ServiceItem = {
     "Performance benchmarks (Lighthouse scores)",
   ],
   duration: "2-6 weeks",
+  promocionalVideo: "/assets/videos/frontend-ux.mp4",
   cta: {
     text: "Discuss Your UI",
     href: "/#contact",

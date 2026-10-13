@@ -36,6 +36,7 @@ export const databaseSolutions: ServiceItem = {
     "Backup and recovery strategy",
   ],
   duration: "1-4 weeks",
+  promocionalVideo: "/assets/videos/database-solutions.mp4",
   cta: {
     text: "Design Your Database",
     href: "/#contact",

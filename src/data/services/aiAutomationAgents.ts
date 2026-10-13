@@ -36,6 +36,7 @@ export const aiAutomationAgents: ServiceItem = {
     "30 days of optimization support",
   ],
   duration: "1-3 weeks",
+  promocionalVideo: "/assets/videos/ai-automation-agents.mp4",
   cta: {
     text: "Automate Your Workflow",
     href: "/#contact",

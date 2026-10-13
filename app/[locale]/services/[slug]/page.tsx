@@ -7,13 +7,14 @@ import { servicesData } from "@/data/services";
 import type { ServiceItem } from "@/data/services";
 import { routing } from "@/i18n/routing";
 import { Link } from "@/i18n/navigation";
+import LoopVideo from "@/components/atoms/LoopVideo";
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
     servicesData.items.map((item) => ({
       locale,
       slug: item.slug,
-    }))
+    })),
   );
 }
 
@@ -52,7 +53,7 @@ export default async function ServiceDetailPage({
 
   return (
     <div className="col-lg-8 ps-lg-5" data-aos="fade-up" data-aos-delay="200">
-      <Image
+      {/* <Image
         src={service.detailImage}
         alt={service.title}
         className="img-fluid services-img"
@@ -60,6 +61,13 @@ export default async function ServiceDetailPage({
         height={648}
         sizes="(max-width: 992px) 100vw, 700px"
         style={{ height: "auto", width: "100%" }}
+      /> */}
+
+      <LoopVideo
+        src={service.promocionalVideo}
+        poster={service.detailImage}
+        className="img-fluid services-img"
+        style={{ aspectRatio: "1024 / 648" }}
       />
 
       <h3>{service.title}</h3>
@@ -118,7 +126,9 @@ export default async function ServiceDetailPage({
       <div className="service-detail-cta" data-aos="fade-up">
         <div className="service-duration">
           <Clock size={18} />
-          <span>{t("typicalDuration")} <strong>{service.duration}</strong></span>
+          <span>
+            {t("typicalDuration")} <strong>{service.duration}</strong>
+          </span>
         </div>
         <Link href={service.cta.href} className="btn-get-started">
           {service.cta.text}
