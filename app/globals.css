@@ -753,6 +753,84 @@ body {
   transform: translateX(4px);
 }
 
+/* LoopVideo - loading / error confinados al hueco del video */
+.loop-video-wrapper {
+  background-color: var(--surface-color);
+}
+
+.loop-video-wrapper video {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.loop-video-loading,
+.loop-video-error {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.loop-video-loading {
+  background-color: var(--surface-color);
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.loop-video-spinner {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 3px solid var(--accent-color);
+  border-top-color: transparent;
+  animation: loop-video-spin 1s linear infinite;
+}
+
+@keyframes loop-video-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loop-video-error {
+  background-color: color-mix(in srgb, var(--surface-color), transparent 8%);
+  color: var(--default-color);
+}
+
+.loop-video-error svg {
+  color: #df1529;
+}
+
+.loop-video-error p {
+  margin: 0;
+  padding: 10px 18px;
+  background: #df1529;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 8px;
+  max-width: 100%;
+}
+
+.loop-video-retry {
+  border: none;
+  cursor: pointer;
+  padding: 8px 22px;
+  font-size: 14px;
+}
+
 /* Service Details - Sidebar sticky en vista monitor (desktop) */
 @media (min-width: 992px) {
   #service-details {
@@ -896,6 +974,144 @@ body {
     height: 36px;
     font-size: 14px;
   }
+}
+
+/* Not Found - standalone (sin dependencia de AOS: estas rutas no montan AosInit) */
+.not-found-enter {
+  animation: not-found-enter 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes not-found-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.not-found-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px 0;
+  font-family: var(--nav-font, "Poppins", sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+}
+
+.not-found-brand svg {
+  color: var(--accent-color);
+}
+
+.not-found-codewrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.04em;
+  line-height: 0.9;
+  user-select: none;
+}
+
+.not-found-code {
+  font-family: var(--heading-font, "Raleway", sans-serif);
+  font-weight: 800;
+  font-size: clamp(96px, 20vw, 208px);
+  letter-spacing: -0.04em;
+  color: var(--heading-color);
+}
+
+.not-found-code-outline {
+  color: transparent;
+  -webkit-text-stroke: 3px var(--accent-color);
+}
+
+@supports not (-webkit-text-stroke: 1px black) {
+  .not-found-code-outline {
+    color: var(--accent-color);
+  }
+}
+
+.not-found-badge {
+  display: inline-block;
+  margin: 18px 0 0 0;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+  border-radius: 50px;
+}
+
+.not-found-title {
+  margin: 14px 0 0 0;
+  font-size: clamp(30px, 5vw, 52px);
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+.not-found-description {
+  margin: 12px 0 0 0;
+  max-width: 56ch;
+  font-size: 17px;
+  line-height: 1.65;
+  color: color-mix(in srgb, var(--default-color), transparent 15%);
+}
+
+.not-found-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.not-found-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 28px;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  color: var(--accent-color);
+  border: 1.5px solid color-mix(in srgb, var(--accent-color), transparent 45%);
+  background: color-mix(in srgb, var(--background-color), transparent 25%);
+  transition: 0.3s;
+}
+
+.not-found-ghost:hover {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.not-found-langnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.not-found-langlink {
+  font-size: 14px;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.25s;
+}
+
+.not-found-langlink:hover {
+  color: var(--accent-color);
 }
 
 /* Skip link */

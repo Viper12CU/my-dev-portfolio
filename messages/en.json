@@ -609,6 +609,14 @@
     "toggleNav": "Toggle navigation",
     "visit": "Visit"
   },
+  "NotFound": {
+    "badge": "Error 404",
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist, was moved, or the link is broken. Go back home or reach me via contact.",
+    "backHome": "Back to home",
+    "contact": "Go to contact",
+    "brand": "Fabian Lemus"
+  },
   "PortfolioDetail": {
     "client": "Client",
     "projectUrl": "Project URL",
